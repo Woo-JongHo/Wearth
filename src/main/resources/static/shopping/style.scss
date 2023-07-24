@@ -1,0 +1,79 @@
+@import "compass/css3";
+
+*, :before, :after{ box-sizing: border-box; }
+// FONTS
+$sans: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+
+// COLORS
+$orange: #DF4500;
+$gray: #35302D;
+$gray-shine: #3C3735;
+$white-off: #DFDBD9;
+
+// REUSABLE STYLES
+.unstyled{ list-style: none; padding: 0; margin: 0;
+  a{ text-decoration: none; }
+}
+.list-inline{ overflow: hidden;
+  li{ float: left; }
+}
+
+// HEADER STYLES
+.side{
+  position: fixed;
+  left: 20px; top: 30px; bottom: 0;
+  width: 120px;
+
+}
+
+.logo{
+  text-transform: lowercase;
+  
+  text-align: center;
+  padding: 0; margin: 0;
+  
+  a{
+    display: block;
+    padding: 1em 0;
+    color: $gray;
+    text-decoration: none;
+ 
+  }
+   hr{
+    height:1.5px;
+    background-color:black;
+  }
+    
+ 
+  }
+  
+// MAIN NAV
+.main-nav{
+  
+  ul{
+  
+  }
+  
+  li{
+    margin-bottom:10px;
+    text-align : center;
+  }
+  
+  a{
+    padding: 1.1em 0;
+    color: $gray;
+    font: 400 1.125em $sans;
+    text:{
+      align: center;
+      transform: lowercase;
+    }
+    
+    &:hover{
+      font-weight : bold;
+    }
+  }
+}
+
+
+
+
