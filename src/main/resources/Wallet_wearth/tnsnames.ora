@@ -1,0 +1,12 @@
+wearth_high = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-chuncheon-1.oraclecloud.com))(connect_data=(service_name=g503d3fbc363af0_wearth_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+wearth_low = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-chuncheon-1.oraclecloud.com))(connect_data=(service_name=g503d3fbc363af0_wearth_low.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+wearth_medium = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-chuncheon-1.oraclecloud.com))(connect_data=(service_name=g503d3fbc363af0_wearth_medium.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+wearth_tp = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-chuncheon-1.oraclecloud.com))(connect_data=(service_name=g503d3fbc363af0_wearth_tp.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+wearth_tpurgent = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-chuncheon-1.oraclecloud.com))(connect_data=(service_name=g503d3fbc363af0_wearth_tpurgent.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+
+
