@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table>
+		<tr th:each="u : ${list}">
+			<td th:text="${u.id}"></td>
+			<td th:text="${u.pwd}"></td>
+			<td th:text="${u.u_name}"></td>
+		</tr>
+		
+	</table>
+</body>
+</html>
