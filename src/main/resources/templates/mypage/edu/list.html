@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Insert title here</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/mypage/css/mypage.css">
+  <link rel="stylesheet" href="/main/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/main/css/style.css">
+  <link rel="stylesheet" href="/main/css/responsive.css">
+  <link rel="stylesheet" href="/main/css/custom.css">
+  <link rel="stylesheet" href="/main/css/sidebar.css">
+  <link rel="stylesheet" href="/styles.css">
+
+
+  
+ 
+</head>
+
+<body>
+	
+	<div th:include="./main/header.html"></div>
+	
+	<div class="container con">
+		<div>
+          <p class="mb-3 title">위얼스 학교 주문 및 신청내역</p>
+          <p>신청 및 주문한 위얼스 학교의 내역을 볼 수 있습니다.</p>
+          <p>아래의 주문번호를 클릭하시면, 자세히 볼 수 있습니다.</p>
+          <hr>
+        </div>
+      <div class="div-search row">
+        <button type="button" class="col search-btn btn btn-outline-success">1개월</button>
+        <button type="button" class="col search-btn btn btn-outline-success">3개월</button>
+        <button type="button" class="col search-btn btn btn-outline-success">6개월</button>
+        <select class="col sel">
+			<option selected >전체</option>
+			<option>교육</option>
+			<option>강연</option>
+		</select>
+        <input type="text" class="input col" placeholder="검색어를 입력하세요.">
+        <button type="button" class="col search-btn btn btn-outline-success">검색</button>
+      </div>
+        <table class="table table-hover">
+          <tr>
+			<th>번호</th>
+            <th>타입</th>
+            <th>신청/주문일자</th>
+            <th>교육/강연명</th>
+            <th>교육/강연장소</th>
+            <th>결제금액</th>
+          </tr>
+          <tr>
+			<td>e001</td>  
+            <td>교육</td>
+            <td>23/07/23</td>
+            <td>찾아가는 환경교육</td>
+            <td>풍성빌딩 4층 F강의실</td>
+            <td>-</td>
+          </tr><tr>
+			<td>e002</td>  
+            <td>강연</td>
+            <td>23/07/21</td>
+            <td><a href="/mypage/edu/detail">찾아가는 환경강연</a></td>
+            <td>풍성빌딩 4층 F강의실</td>
+            <td>30,000원</td>
+          </tr>
+          <tr>
+			<td>e001</td>  
+            <td>교육</td>
+            <td>23/07/23</td>
+            <td>찾아가는 환경교육</td>
+            <td>풍성빌딩 4층 F강의실</td>
+            <td>-</td>
+          </tr><tr>
+			<td>e002</td>  
+            <td>강연</td>
+            <td>23/07/21</td>
+            <td>찾아가는 환경강연</td>
+            <td>풍성빌딩 4층 F강의실</td>
+            <td>30,000원</td>
+          </tr>
+          <tr>
+			<td>e001</td>  
+            <td>교육</td>
+            <td>23/07/23</td>
+            <td>찾아가는 환경교육</td>
+            <td>풍성빌딩 4층 F강의실</td>
+            <td>-</td>
+          </tr><tr>
+			<td>e002</td>  
+            <td>강연</td>
+            <td>23/07/21</td>
+            <td>찾아가는 환경강연</td>
+            <td>풍성빌딩 4층 F강의실</td>
+            <td>30,000원</td>
+          </tr>
+         
+
+      </table>
+        <nav aria-label="Page navigation example" class="justify-content-center" style="display: flex;">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+		
+	</div>
+	
+	
+	<div th:include="./main/footer.html"></div>
+	
+	
+	
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</body>
+
+</html>

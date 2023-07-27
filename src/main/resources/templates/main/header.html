@@ -22,23 +22,55 @@
 
 	<!-- Site Icons -->
 	<link rel="shortcut icon" href="main/images/favicon.ico" type="main/image/x-icon">
-
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="main/css/bootstrap.min.css">
-	<!-- Site CSS -->
-	<link rel="stylesheet" href="main/css/style.css">
-	<!-- Responsive CSS -->
-	<link rel="stylesheet" href="main/css/responsive.css">
-	<!-- Custom CSS -->
-	<link rel="stylesheet" href="main/css/custom.css">
-
-	<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>
+	<!-- sidebar -->
+	<div  th:if="${session.u != null}" class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="sidebar" aria-labelledby="sidebar">
+	  <div class="offcanvas-header">
+	    <h3 class="offcanvas-title" id="offcanvasScrollingLabel">MyPage</h3>
+	    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	  </div>
+	  <div class="offcanvas-body">
+	    <div class="card user-info text-center shadow">
+	        <div class="card-body">
+	          <div class="profile-box" >
+	            <img src="https://www.thechooeok.com/common/img/default_profile.png" class="card-img-top profile-img" alt="프로필">
+	          </div>
+	          <span th:text="${u.u_name}"></span><br>
+	          <button class="btn custom-btn mb-3" style="font-size: 13px;">개인정보 수정</button>
+				<table width="80%">
+					<tr>
+						<th>쿠폰</th>
+						<th>적립금</th>
+					</tr>
+					<tr>
+						<td>2 장</td>
+						<td>4,870 원</td>
+					</tr>
+				</table>
+	        </div>
+	      </div>
+	      
+	      <div class="detail-bar"> 
+			<ul class="nav flex-column">실천
+	          <li class="nav-item"><a class="nav-link" href="/mypage/act/list">봉사신청내역</a></li>
+	          <li class="nav-item"><a class="nav-link" href="">내가 쓴 글</a></li>
+	        </ul>
+			<ul class="nav flex-column">위얼스 학교
+	          <li class="nav-item"><a class="nav-link" href="/mypage/edu/list">신청내역</a></li>
+	          <li class="nav-item"><a class="nav-link" href="">관심 교육/강연</a></li>
+	        </ul>
+	        <ul class="nav flex-column">쇼핑
+	          <li class="nav-item"><a class="nav-link" href="/mypage/shopping/list">주문내역</a></li>
+	          <li class="nav-item"><a class="nav-link" href="">관심 상품</a></li>
+	        </ul>
+	        
+	      
+	      </div>
+	  </div>
+	</div>
+
 
 	<!-- Start Main Top -->
 	<header class="main-header">
@@ -51,7 +83,7 @@
 						aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 						<i class="fa fa-bars"></i>
 					</button>
-					<a class="navbar-brand" href="/"><img src="main/images/logo.png" class="logo" alt=""></a>
+					<a class="navbar-brand" href="/"><img src="https://ifh.cc/g/TjraG8.png" class="logo" alt=""></a>
 				</div>
 				<!-- End Header Navigation -->
 
@@ -160,6 +192,7 @@
 					</ul>
 				</li>
 			</div>
+			<button  th:if="${session.u != null}" class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">T</button>
 			<!-- End Side Menu -->
 		</nav>
 		<!-- End Navigation -->

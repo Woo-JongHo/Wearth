@@ -25,4 +25,5 @@ public class UsersVO {
 	private String phone;
 	private int point;
 	private String u_status;
+	private String role;
 }

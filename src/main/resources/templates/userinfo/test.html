@@ -1,17 +1,124 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Insert title here</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/userinfo/css/userinfo.css">
+  <link rel="stylesheet" href="/main/css/bootstrap.min.css">
+	<!-- Site CSS -->
+	<link rel="stylesheet" href="/main/css/style.css">
+	<!-- Responsive CSS -->
+	<link rel="stylesheet" href="/main/css/responsive.css">
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="/main/css/custom.css">
+	<link rel="stylesheet" href="/styles.css">
+
+<style>
+    
+     .btn{
+      border-radius: 15px;
+      }
+    #sidebar {
+      background-color: rgb(222, 223, 221);
+    }
+
+    .container {
+      margin-left: 20%;
+      transition: all 0.3s ease-out; 
+    }
+    .user-info{
+      margin: 20px;
+      opacity: 0.8;
+      border : none;
+      border-radius: 15px;
+      padding-top: 20px;
+
+    }
+    .profile-box{
+      margin: auto;
+      display: block;
+      width: 70px;
+      height: 70px;
+      border-radius: 70%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease-out; 
+    }
+    .user-profile{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      
+    }
+    .div-nickname {
+      font-weight: bold; 
+      margin-top: 10px;
+    }
+    .detail-bar{
+      margin: 40px;
+
+    }
+
+  </style>
+  
+ 
 </head>
+
 <body>
-	<table>
-		<tr th:each="u : ${list}">
-			<td th:text="${u.id}"></td>
-			<td th:text="${u.pwd}"></td>
-			<td th:text="${u.u_name}"></td>
-		</tr>
-		
-	</table>
+	
+  <!-- Offcanvas Sidebar -->
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="sidebar" aria-labelledby="sidebar">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">마이페이지</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="card user-info text-center shadow">
+        <div class="profile-box" >
+          <img src="https://www.thechooeok.com/common/img/default_profile.png" class="card-img-top profile-img" alt="프로필">
+        </div>
+        <span class="div-nickname">닉네임</span>
+        <div class="card-body">
+          <button class="btn custom-btn" style="font-size: 13px;">개인정보 수정</button>
+        </div>
+      </div>
+      
+      <div class="nav detail-bar">
+        <ul class="nav-item">쇼핑
+          <li>주문내역</li>
+          <li>쿠폰 및 적립금</li>
+          <li>관심 상품</li>
+        </ul>
+      
+      </div>
+  </div>
+</div>
+
+<!-- Button to open the offcanvas sidebar -->
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">Enable body scrolling</button>
+
+
+    
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+  </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+ 	<script>
+		 
+	 </script>
 </body>
+
 </html>

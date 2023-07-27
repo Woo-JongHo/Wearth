@@ -8,11 +8,11 @@ public class MainController {
 
 	@GetMapping("/")
 	public String test() {
-		return "/main/main";
+		return "main/main";
 	}
 	@GetMapping("/main")
 	public String test2() {
-		return "/shop/shopMain";
+		return "shop/shopMain";
 	}
 
 }

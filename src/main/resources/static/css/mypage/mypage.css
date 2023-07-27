@@ -1,0 +1,109 @@
+@charset "UTF-8";
+.con{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+	.title{
+      color: #3a6d40 !important;
+      font-weight: bold !important;
+      font-size: 30px !important;
+    }
+    table{
+      padding: 20px;
+   }
+    .main{
+      margin: 30px;
+    }
+    .page-link:hover{
+      background-color: rgb(227, 244, 229) !important;
+      color:black
+    }
+    .page-link{
+      color: black !important;
+      border-radius: 60% !important;
+      border : none !important;
+    }
+    .Page{
+      border-radius: 60% !important;
+    }
+    .pagination{
+      border-radius: 60% !important;
+    }
+    .search-btn{
+      max-width: 60px !important;
+      max-height: 28px;
+      margin: 5px;
+      font-size: 14px;
+      text-align: center !important;
+      display: flex !important;
+      align-items: center !important; 
+      justify-content: center !important;
+    }
+    .div-days{
+      display: contents;
+      margin : 10px;
+    }
+    input{
+      max-width: 120px;
+      max-height: 28px;
+      margin-top: 5px !important;
+    }
+    .div-search{
+      justify-content: flex-end
+    }
+span{
+    margin-top: 5px;
+}
+.div-shopping-list{
+    max-width: 900px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+}
+.paging{
+    align-items: center !important;
+}
+a{
+    text-decoration: none;
+}
+tr{
+    text-align: center;
+    color: black;
+}  
+.div-shopping-detail {
+    max-width: 900px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.img{
+    width: 100px !important;
+    height: 100px;
+}
+.custom-btn{
+    border-radius: 30px;
+}
+b{
+    font-weight: 300;
+}
+.t-btn{
+	margin-left: 5px;
+	max-height: 150px !important;	
+	font-size: 15px;
+}
+.input{
+	border-color: rgb(205, 205, 205) !important;
+ 	padding-left: 10px;
+ 	max-width: 180px !important;
+	border-radius: 30px !important;
+	max-height: 28px !important;
+}
+.sel{
+	margin-top: 5px;
+	border-color: rgb(205, 205, 205) !important;
+ 	padding-left: 10px;
+ 	max-width: 100px !important;
+	border-radius: 30px !important;
+	max-height: 28px !important;
+	margin-right: 5px;
+}
+  

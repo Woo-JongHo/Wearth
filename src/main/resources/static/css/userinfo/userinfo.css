@@ -1,0 +1,111 @@
+@charset "UTF-8";
+	.form-container{
+   background: white;
+   padding: 40px;
+   max-width : 500px !important;
+   min-height : 300px;
+   text-align: center;
+   border-radius: 30px;
+   font-family: "IBM Plex Sans KR";
+   margin-top: 20px;
+   margin-bottom: 10px;
+}
+.submit-btn{
+  width : 60%;
+  border-radius: 30px !important;
+  letter-spacing: 15px;
+  font-weight: bold;  
+  font-size: 15px;
+}
+
+.input{
+  font-size: 15px;
+	font-weight: lighter !important;
+	border: none !important;
+	background-color: #F0F0F0 !important;
+	color: #465347!important;
+  padding-left: 10px;
+	border-radius: 30px !important;
+	transition : 0.2s;
+}
+.sns-logo{
+  max-width: 90px !important;
+  height: auto;
+  	transition : 0.2s;
+
+}
+
+.sns-logo:hover{
+  filter:brightness(0.8);
+  	transition : 0.2s;
+
+}
+.link{
+  text-decoration: none;
+  color: black;
+}
+.link:hover{
+  color: #4c9d89;
+}
+.line .line2{
+  border-top: 3.5px double #bbb;
+  text-align: center;
+  overflow: visible;
+  opacity: 50%;
+  width: 50%;
+  display: inline-block;
+}
+.line-none {
+  border-top: 3.5px double #bbb;
+  text-align: center;
+  overflow: visible;
+  opacity: 50%;
+  width: 70%;
+  display: inline-block;
+}
+
+.line-none::after{
+  content: url("https://i.ibb.co/tX7N20f/earth.png");
+  position: relative;
+  top: -15px;
+  padding: 0 10px;
+  background-color: white;
+  margin-bottom: 0px !important;
+} 
+.line::after{
+  content: "SNS 로그인";
+  position: relative;
+  top: -15px;
+  padding: 0 10px;
+  background-color: white;
+  margin-bottom: 0px !important;
+} 
+
+.id-check-btn{
+  border-radius: 30px !important;
+  text-align: center;
+  margin-left: 10px !important;
+}
+.line2::after{
+  content: "SNS 회원가입";
+  position: relative;
+  top: -15px;
+  padding: 0 10px;
+  background-color: white;
+  margin-bottom: 0px !important;
+} 
+.div-input{
+  width: 80%;
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
+}
+.detail{
+  font-size: 10px;
+  padding-top: 10px;
+  color: #416753;
+}
+.form-check-input:checked {
+    background-color: #33925f;
+    border-color: #33925f;
+}

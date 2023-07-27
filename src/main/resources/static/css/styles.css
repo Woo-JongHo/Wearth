@@ -1,0 +1,28 @@
+@charset "UTF-8";
+:root{
+	
+}
+
+
+.custom-btn{
+  background-color : #58b483;
+  color : white;
+  text-align: center;
+}
+.custom-btn:hover{
+  background: #43a06f;
+  color : white;
+} 
+.custom-reverse-btn{
+  color : #58b483;
+  background-color : white;
+  text-align: center;
+  border-color: #43a06f;
+}
+.custom-reverse-btn:hover{
+  background: #43a06f;
+  color : white;
+} 
+body{
+      font-family: "IBM Plex Sans KR";
+}
