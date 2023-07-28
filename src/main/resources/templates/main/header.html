@@ -19,6 +19,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
 	<!--font end-->
+    <link rel="stylesheet" href="/css/main/sidebar.css">
 
 	<!-- Site Icons -->
 	<link rel="shortcut icon" href="main/images/favicon.ico" type="main/image/x-icon">
@@ -26,7 +27,7 @@
 
 <body>
 	<!-- sidebar -->
-	<div  th:if="${session.u != null}" class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="sidebar" aria-labelledby="sidebar">
+	<div  sec:authorize="isAuthenticated()" class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="sidebar" aria-labelledby="sidebar">
 	  <div class="offcanvas-header">
 	    <h3 class="offcanvas-title" id="offcanvasScrollingLabel">MyPage</h3>
 	    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -37,8 +38,8 @@
 	          <div class="profile-box" >
 	            <img src="https://www.thechooeok.com/common/img/default_profile.png" class="card-img-top profile-img" alt="프로필">
 	          </div>
-	          <span th:text="${u.u_name}"></span><br>
-	          <button class="btn custom-btn mb-3" style="font-size: 13px;">개인정보 수정</button>
+	          <span th:text="${session.u.nickname}"></span><br>
+	          <button class="btn custom-btn mb-3" style="font-size: 13px;" onclick="window.location.href='/mypage/update'">개인정보 수정</button>
 				<table width="80%">
 					<tr>
 						<th>쿠폰</th>
@@ -46,7 +47,7 @@
 					</tr>
 					<tr>
 						<td>2 장</td>
-						<td>4,870 원</td>
+						<td th:text="${session.u.point}+'원'"></td>
 					</tr>
 				</table>
 	        </div>
@@ -147,16 +148,31 @@
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
-
 				<!-- Start Atribute Navigation -->
 				<div class="attr-nav">
-					<ul>
+					<ul sec:authorize="!isAuthenticated()">
 						<li class="nav-item"><a href="/userinfo/login"
 								style="font-size: 10pt; padding-right: 0px;">로그인</a> </li>
 						<li class="nav-item"><a href="#"
 								style="font-size: 10pt; padding-right: 0px;">|</a></liclass="nav-item">
 						<li class="nav-item"><a href="/userinfo/signup"
 								style="font-size: 10pt; padding-right: 0px;">회원가입</a></li>
+						<li class="nav-item"><a href="/cart">
+								<i class="fa fa-shopping-bag"></i>
+
+						</li>
+					</ul>
+					<ul sec:authorize="isAuthenticated()">
+=						<li class="nav-item">
+						  <a style="font-size: 10pt; padding-right: 0px;" id="myPageLink">마이페이지</a>
+						</li>
+								
+						<li class="nav-item"><a href="#"
+								style="font-size: 10pt; padding-right: 0px;">|</a></liclass="nav-item">
+								
+						<li class="nav-item"><a href="/userinfo/logout"
+								style="font-size: 10pt; padding-right: 0px;">로그아웃</a></li>
+								
 						<li class="nav-item"><a href="/cart">
 								<i class="fa fa-shopping-bag"></i>
 
@@ -192,7 +208,7 @@
 					</ul>
 				</li>
 			</div>
-			<button  th:if="${session.u != null}" class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">T</button>
+			
 			<!-- End Side Menu -->
 		</nav>
 		<!-- End Navigation -->
@@ -229,6 +245,13 @@
 	<script src="js/form-validator.min.js"></script>
 	<script src="js/contact-form-script.js"></script>
 	<script src="js/custom.js"></script>
+	<script>
+		  document.getElementById('myPageLink').addEventListener('click', function() {
+		    var offcanvasElement = document.getElementById('sidebar');
+		    var offcanvas = new bootstrap.Offcanvas(offcanvasElement);
+		    offcanvas.show();
+		  });
+	</script>
 </body>
 
 </html>
