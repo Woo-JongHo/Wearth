@@ -1,0 +1,535 @@
+@charset "utf-8";
+/* CSS Document */
+
+/******************************
+
+[Table of Contents]
+
+1. 1600px
+2. 1440px
+3. 1280px
+4. 1199px
+5. 1024px
+6. 991px
+7. 959px
+8. 880px
+9. 768px
+10. 767px
+11. 539px
+12. 479px
+13. 400px
+
+******************************/
+
+
+@media only screen and (max-width: 1600px)
+{
+}
+
+/************
+2. 1440px
+************/
+
+@media only screen and (max-width: 1540px)
+{
+	
+}
+
+/************
+3. 1380px
+************/
+
+@media only screen and (max-width: 1380px)
+{
+	
+}
+
+/************
+3. 1280px
+************/
+
+@media only screen and (max-width: 1280px)
+{
+	
+}
+
+/************
+4. 1199px
+************/
+
+@media only screen and (max-width: 1199px)
+{
+	.single_product_thumbnails ul li
+	{
+		height: 110px;
+	}
+	.single_product_image
+	{
+		height: 436px;
+	}
+}
+
+/************
+5. 1024px
+************/
+
+@media only screen and (max-width: 1024px)
+{
+	
+}
+
+/************
+6. 991px
+************/
+
+@media only screen and (max-width: 991px)
+{
+	h1{font-size: 48px;}
+	h2{font-size: 36px;}
+	
+	.single_product_container
+	{
+		margin-top: 100px;
+	}
+	.main_content
+	{
+		float: none;
+		width: 100%;
+		padding-left: 0px;
+	}
+
+	.product_details
+	{
+		margin-top: 71px;
+	}
+    .progress-all{
+		 width :100%;
+		 height : 10px;
+		 left : 10px;
+
+	}
+	.progress-score{
+		visibility: hidden;
+	}
+	.count-review{
+		font-size: 3px;
+		left: 20px;
+		
+	}
+	.item{
+		width : 50%;
+		height : 50%;
+	}
+	
+	.carousel-wrap {
+	margin-top: 10px;
+  width: 60%;
+  left: 29%;
+  position: relative;
+}
+	.owl-nav i {
+  font-size: 30px;
+}
+
+.owl-nav .owl-prev {
+  left: -30px;
+  top: -30px;
+}
+
+.owl-nav .owl-next {
+  left: 15px;
+  top: -30px;
+}
+.allPhoto{
+	font-size: 6pt;
+}
+}
+
+/************
+7. 959px
+************/
+
+@media only screen and (max-width: 959px)
+{
+	
+}
+
+/************
+8. 880px
+************/
+
+@media only screen and (max-width: 880px)
+{
+	
+}
+
+/************
+9. 768px
+************/
+
+@media only screen and (max-width: 768px)
+{
+	
+}
+
+/************
+10. 767px
+************/
+
+@media only screen and (max-width: 767px)
+{
+	h1{font-size: 36px;}
+	h2{font-size: 24px;}
+	h6{font-size: 12px;}
+	.red_button a
+	{
+		font-size: 12px;
+	}
+	.tab_title
+	{
+		margin-bottom: 78px;
+	}
+	.tab_text_block
+	{
+		margin-bottom: 113px;
+	}
+	.tab_image
+	{
+		margin-bottom: 111px;
+	}
+	.single_product_image
+	{
+		height: 576px;
+	}
+	.benefit_col
+	{
+		margin-bottom: 15px;
+	}
+	.newsletter_form
+	{
+		margin-bottom: 40px;
+	}
+	.newsletter_submit_btn
+	{
+		margin-top: 15px;
+	}
+	.desc_last
+	{
+		margin-bottom: 0px;
+	}
+	   .progress-all{
+		 width :100%;
+		 height : 10px;
+		 left : 10px;
+
+	}
+	.progress-score{
+		visibility: hidden;
+	}
+	.count-review{
+		font-size: 3px;
+		left: 20px;
+		
+	}
+	.item{
+		width : 50%;
+		height : 50%;
+	}
+	
+	.carousel-wrap {
+	margin-top: 10px;
+  width: 60%;
+  left: 29%;
+  position: relative;
+}
+	.owl-nav i {
+  font-size: 30px;
+}
+
+.owl-nav .owl-prev {
+  left: -30px;
+  top: -30px;
+}
+
+.owl-nav .owl-next {
+  left: 15px;
+  top: -30px;
+}
+.allPhoto{
+	font-size: 6pt;
+}
+}
+
+
+/************
+11. 575px
+************/
+
+@media only screen and (max-width: 575px)
+{
+	p
+	{
+		font-size: 13px;
+	}
+	.hamburger_menu
+	{
+		right: -100%;
+		width: 100%;
+	}
+	.single_product_image
+	{
+		height: calc((100vw - 30px) / 0.86);
+	}
+	.single_product_thumbnails ul li
+	{
+		width: 80px;
+		height: 80px;
+	}
+	.single_product_thumbnails ul li img
+	{
+		height: auto;
+		width: 100%;
+	}
+	.breadcrumbs ul li
+	{
+		margin-right: 10px;
+	}
+	.breadcrumbs ul li a
+	{
+		font-size: 13px;
+	}
+	.breadcrumbs ul li i
+	{
+		margin-right: 12px;
+	}
+	.quantity
+	{
+		height: auto;
+	}
+	.quantity_selector
+	{
+		height: 40px;
+		margin-left: 0px;
+		margin-top: 15px;
+	}
+	.add_to_cart_button
+	{
+		margin-left: 0px;
+		margin-top: 15px;
+	}
+	.product_favorite
+	{
+		margin-left: 0px;
+		margin-top: 15px;
+		height: 40px;
+	}
+	.tab
+	{
+		margin-right: 30px;
+	}
+	.tab span
+	{
+		font-size: 14px;
+	}
+	.tab_title h4
+	{
+		font-size: 20px;
+	}
+	.review
+	{
+		padding-left: 0px;
+	}
+	.review_date
+	{
+		margin-top: 15px;
+	}
+	.add_review
+	{
+		margin-top: 44px;
+	}
+	.user_rating .star_rating
+	{
+		margin-left: 0px;
+		margin-top: 7px;
+	}
+   .progress-all{
+		 width :100%;
+		 height : 10px;
+		 left : 10px;
+
+	}
+	.progress-score{
+		visibility: hidden;
+	}
+	.count-review{
+		font-size: 3px;
+		left: 20px;
+		
+	}
+	.item{
+		width : 50%;
+		height : 50%;
+	}
+	
+	.carousel-wrap {
+	margin-top: 10px;
+  width: 60%;
+  left: 29%;
+  position: relative;
+}
+	.owl-nav i {
+  font-size: 30px;
+}
+
+.owl-nav .owl-prev {
+  left: -30px;
+  top: -30px;
+}
+
+.owl-nav .owl-next {
+  left: 15px;
+  top: -30px;
+}
+.allPhoto{
+	font-size: 6pt;
+}
+
+
+}
+
+/************
+11. 539px
+************/
+
+@media only screen and (max-width: 539px)
+{
+	
+}
+
+/************
+12. 480px
+************/
+
+@media only screen and (max-width: 480px)
+{
+	
+}
+
+/************
+13. 479px
+************/
+
+@media only screen and (max-width: 479px)
+{
+	.logo_container a
+	{
+		font-size: 12px;
+	}
+	.hamburger_container
+	{
+		margin-left: 25px;
+	}
+	.hamburger_container i
+	{
+		font-size: 16px;
+	}
+	.hamburger_close
+	{
+		top: 14px;
+		right: 4px;
+	}
+	.hamburger_close i
+	{
+		font-size: 20px;
+	}
+	.hamburger_menu_content
+	{
+		padding-right: 15px;
+		padding-top: 70px;
+	}
+	.menu_item
+	{
+		border-bottom-color: rgba(181, 174, 196, 0.5);
+	}
+	.menu_item > a
+	{
+		font-size: 12px;
+		line-height: 35px;
+		height: 35px;
+	}
+	.menu_selection li a
+	{
+		font-size: 12px;
+		line-height: 35px;
+		height: 35px;
+	}
+	.navbar
+	{
+		height: 70px;
+	}
+	.navbar_user li a
+	{
+		width: 30px;
+		height: 30px;
+		font-size: 12px;
+	}
+	.checkout_items
+	{
+		width: 15px;
+		height: 15px;
+		font-size: 10px;		
+	}
+	   .progress-all{
+		 width :100%;
+		 height : 10px;
+		 left : 10px;
+
+	}
+	.progress-score{
+		visibility: hidden;
+	}
+	.count-review{
+		font-size: 3px;
+		left: 20px;
+		
+	}
+	.item{
+		width : 50%;
+		height : 50%;
+	}
+	
+	.carousel-wrap {
+	margin-top: 10px;
+  width: 60%;
+  left: 29%;
+  position: relative;
+}
+	.owl-nav i {
+  font-size: 30px;
+}
+
+.owl-nav .owl-prev {
+  left: -30px;
+  top: -30px;
+}
+
+.owl-nav .owl-next {
+  left: 15px;
+  top: -30px;
+}
+.allPhoto{
+	font-size: 6pt;
+}
+
+
+
+}
+
+/************
+14. 400px
+************/
+
+@media only screen and (max-width: 400px)
+{
+	
+}

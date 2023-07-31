@@ -1,10 +1,141 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+	<link rel="" href="" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Colo Shop Template">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/main/style.css">
+	<link rel="stylesheet" href="/css/main/responsive.css">
+	<link rel="stylesheet" href="/css/main/custom.css">
+	<link rel="stylesheet" href="/css/main/sidebar.css">
+	<link rel="stylesheet" href="css/shop/cart/cart.css" />
+	<link rel="stylesheet" href="/css/styles.css">
+	<script src="css/shop/cart/cart.js"></script>
 </head>
+
 <body>
-<h2>장바구니</h2>
+	<div th:include="main/header.html"></div>
+	<div class="content">
+		<h1 style="font-weight: bold;">장바구니</h1>
+		<br />
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">
+						<div class="default">
+							<div class="green">
+								<div class="group green">
+									<input type="checkbox" id="unchecked_green">
+								</div>
+							</div>
+						</div>
+					</th>
+					<th scope="col">상품정보</th>
+					<th scope="col">수량</th>
+					<th scope="col">주문금액</th>
+					<th scope="col">배송정보</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<div class="default">
+							<div class="green">
+								<div class="group green">
+									<input type="checkbox" id="unchecked_green">
+								</div>
+							</div>
+						</div>
+					</td>
+					<td style="text-align: left;"> <img src="css/shop/images/susemi1.jpeg"
+							style="width : 50px; height: 50px;" /> [소락] 천연 수세미 세트
+					</td>
+					<td>
+						<div class="num-block skin-5">
+							<div class="num-in">
+								<span class="minus dis">-</span>
+								<input type="text" class="in-num" value="1" readonly="">
+								<span class="plus">+</span>
+							</div>
+						</div>
+					</td>
+					<td>
+						3000 <br />
+						<button class="pay-btn-small">주문하기</button>
+					</td>
+					<td>3000</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="default">
+							<div class="green">
+								<div class="group green">
+									<input type="checkbox" id="unchecked_green">
+								</div>
+							</div>
+						</div>
+					</td>
+					<td style="text-align: left;"> <img src="css/shop/images/susemi1.jpeg"
+							style="width : 50px; height: 50px;" /> [소락] 천연 수세미 세트
+					</td>
+					<td>
+						<div class="num-block skin-5">
+							<div class="num-in">
+								<span class="minus dis">-</span>
+								<input type="text" class="in-num" value="1" readonly="">
+								<span class="plus">+</span>
+							</div>
+						</div>
+					</td>
+					<td>3000</td>
+					<td>3000</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr />
+		<button class="delete-btn">선택상품 삭제</button>
+		<button class="delete-btn">품절상품 삭제</button>
+
+		<!--주문 합계 start-->
+		<hr />
+		총 주문 수량(2개)
+		<hr />
+		<div class="order-tot">
+			<table class="orderTable">
+				<tr>
+					<td class="calc">3000원</td>
+					<td class="calc">+</td>
+					<td class="calc">3000원</td>
+					<td class="calc">=</td>
+					<td class="calc" style="color: #43a06f;">6000원</td>
+				</tr>
+				<tr>
+					<td>상품금액</td>
+					<td></td>
+					<td colspan="1">배송비</td>
+					<td></td>
+					<td>총 주문 금액</td>
+				</tr>
+			</table>
+		</div>
+		<hr />
+		<!--주문 합계 end-->
+
+		<!--주문버튼 start-->
+		<div class="pay">
+			<button class="pay-btn" onclick="window.location.href='/order'">주문하기</button> <br />
+			<button class="pay-btn2">Npay 주문하기</button>
+		</div>
+		<!--주문버튼 end-->
+	</div>
+	<div th:include="main/footer.html"></div>
 </body>
+
 </html>

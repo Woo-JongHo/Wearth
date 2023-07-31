@@ -1,0 +1,199 @@
+@charset "UTF-8";
+
+
+.content {
+	padding: 0px 12% 0px 12%;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	padding: 15px 0;
+}
+
+.num-block {
+	float: left;
+	width: 100%;
+	padding: 15px 30px;
+}
+.table{
+	text-align: center;
+}
+
+/* skin 5 */
+
+.num-block.skin-5 {
+	padding : 0;
+	width : 50%;
+	padding-left: 30%;
+	padding-right: 30%;
+}
+
+.skin-5 .num-in {
+	width: 88px;
+	float: left;
+	vertical-align: middle;
+	position: relative;
+	border: 1px solid #EEEFF1;
+	border-radius: 3px;
+	
+}
+
+.skin-5 .num-in:hover {
+	border: 1px solid #4687FF;
+	-webkit-box-shadow: 0px 0px 7px 0px rgba(70, 135, 255, 0.75);
+	-moz-box-shadow: 0px 0px 7px 0px rgba(70, 135, 255, 0.75);
+	box-shadow: 0px 0px 7px 0px rgba(70, 135, 255, 0.75);
+}
+
+.skin-5 .num-in span {
+	font-size: 16px;
+	width: 20px;
+	display: block;
+	line-height: 41px;
+}
+
+.skin-5 .num-in span.minus {
+	float: left;
+	text-align: right;
+}
+
+.skin-5 .num-in input {
+	border: none;
+	height: 41px;
+	width: 46px;
+	float: left;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+.skin-5 .num-in span.plus {
+	float: right;
+	text-align: left;
+}
+
+/* / skin 5 */
+
+.delete-btn{
+	border: none;
+	background-color: #f3f3f3;
+	border-radius: 30px;
+	width: 100px;
+	cursor: pointer;
+}
+.delete-btn:hover{
+	background-color: #d3d3d3;
+}
+
+/*주문 합계 srart*/
+
+.order-tot{
+	margin-top: 30px;
+	height: 150;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.orderTable{
+	text-align: center;
+	width : 70%;
+	height : 100px;
+
+}
+.calc{
+	font-weight: bold;
+	font-size: 20pt;
+}
+
+/*주문 합계 end*/
+
+.pay{
+	text-align: center;
+}
+.pay-btn{
+	width : 300px;
+	background-color : #58b483;
+	color: white;
+	cursor: pointer;
+	border: none;
+	margin-bottom: 10px;
+	border-radius : 30px;
+}
+.pay-btn:hover{
+	width : 300px;
+	background-color : #43a06f;
+	color: white;
+}
+.pay-btn2{
+	width : 300px;
+	background-color : green;
+	color: white;
+	cursor: pointer;
+	border: none;
+	border-radius : 30px;
+}
+.pay-btn2:hover{
+	width : 300px;
+	background-color : darkgreen;
+	color: white;
+}
+
+.pay-btn-small{
+	width : 100px;
+	background-color : #58b483;
+	color: white;
+	cursor: pointer;
+	border: none;
+	margin-bottom: 10px;
+	border-radius : 30px;
+}
+.pay-btn-small:hover{
+	width : 100px;
+	background-color : #43a06f;
+	color: white;
+}
+
+/*체크박스 start*/
+input[type='checkbox'] {
+  color: inherit;
+  appearance: none;
+  border: 1px solid currentColor;
+  border-radius: .25rem;
+  width: 1rem;
+  height: 1rem;
+  
+  &:checked {
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="m3.75 8.5 2.5 2.5 6-6" style="fill:none;stroke:white;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5"/></svg>')
+      no-repeat center/100%, currentColor;
+  }
+}
+
+/* Not checkbox-relevant styles */
+
+
+.group:last-child {
+  margin: 0;  
+}
+
+.green {
+  color: #58b483;
+}
+
+
+@keyframes fancy {
+  
+  33.3333% {
+    color: #58b483;
+  }
+  
+}

@@ -3,6 +3,22 @@
 	
 }
 
+ .page-link:hover{
+      background-color: rgb(227, 244, 229) !important;
+      color:black
+    }
+    .page-link{
+      color: black !important;
+      border-radius: 60% !important;
+      border : none !important;
+    }
+    .Page{
+      border-radius: 60% !important;
+    }
+    .pagination{
+      border-radius: 60% !important;
+    }
+
 
 .custom-btn{
   background-color : #58b483;

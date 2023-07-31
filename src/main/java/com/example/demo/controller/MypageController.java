@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.example.demo.dao.UsersDAO;
+import com.example.demo.dao.UserJpaRepository;
 
 import lombok.Setter;
 
@@ -27,5 +27,8 @@ public class MypageController {
 	
 	@GetMapping("/mypage/edu/detail")
 	public void detail_edu() {}
+	
+	@GetMapping("/mypage/update")
+	public void updateForm() {}
 	
 }

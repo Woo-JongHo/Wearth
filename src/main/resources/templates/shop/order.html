@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+	<link rel="stylesheet" href="/css/main/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/main/style.css">
+	<link rel="stylesheet" href="/css/main/responsive.css">
+	<link rel="stylesheet" href="/css/main/custom.css">
+	<link rel="stylesheet" href="/css/main/sidebar.css">
+	<link rel="stylesheet" href="/css/userinfo/userinfo.css">
+	<link rel="stylesheet" href="/css/shop/order.css">
+	<link rel="stylesheet" href="css/shop/cart/cart.css" />
+	<link rel="stylesheet" href="/css/styles.css">
+	<meta name="_csrf_header" th:content="${_csrf.headerName}">
+	<meta name="_csrf" th:content="${_csrf.token}">
+</head>
+
+<body>
+	<div th:include="./main/header.html"></div>
+	<div class="container" id="containter">
+		<div class="order-list">
+			<table class="table">
+				<caption style="caption-side: top;">주문 상품</caption>
+				<thead>
+					<tr>
+						<th scope="col">상품정보</th>
+						<th scope="col">수량</th>
+						<th scope="col">판매가</th>
+						<th scope="col">배송비</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: left;"> <img src="css/shop/images/susemi1.jpeg"
+								style="width : 50px; height: 50px;" /> [소락] 천연 수세미 세트
+						</td>
+						<td>1</td>
+						<td>3000</td>
+						<td>3000</td>
+					</tr>
+					<tr>
+						<td style="text-align: left;"> <img src="css/shop/images/susemi1.jpeg"
+								style="width : 50px; height: 50px;" /> [소락] 천연 수세미 세트
+						</td>
+						<td>1</td>
+
+						<td>3000</td>
+						<td>-</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<td colspan="4" style="text-align: end; font-size: 17px;">
+						상품 구매금액 : 6000 + 배송비 : 3000 = 합계 : 3000
+					</td>
+				</tfoot>
+			</table>
+			<b style="color: red; font-size: 10px;">상품 변경은 장바구니에서 가능합니다.</b>
+
+		</div>
+		<div class="shipping-list">
+			<table class="table">
+				<caption style="caption-side: top;">배송 정보</caption>
+				<tbody>
+					<tr>
+						<td scope="col">배송지 선택</td>
+						<td>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="radio-ship" id="ship1"
+									value="option1">
+								<label class="form-check-label" for="ship1">회원 정보와 동일</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="radio-ship" id="ship2"
+									value="option2">
+								<label class="form-check-label" for="ship2">새로운 배송지</label>
+							</div>
+							<button class="custom-btn btn">주소록 보기</button>
+						</td>
+
+					</tr>
+					<tr>
+						<td scope="col">받으시는 분<b style="color: red;">&nbsp;*</b></td>
+						<td>
+							<input type="text">
+						</td>
+					</tr>
+					<tr>
+						<td scope="col">주소<b style="color: red;">&nbsp;*</b></td>
+						<td>
+							<input type="text" id="inputAddr">
+							<button class="custom-btn btn" onclick="searchAddr()">검색</button>
+							<br>
+							<input type="text" placeholder="상세주소를 입력해주세요.">
+						</td>
+					</tr>
+					<tr>
+						<td scope="col">휴대전화<b style="color: red;">&nbsp;*</b></td>
+						<td>
+							<div style="display: inline-block;">
+								<input type="text" id="inputPhone1" style="width: 70px;">&nbsp;-&nbsp;
+								<input type="text" id="inputPhone2" style="width: 80px;">&nbsp;-&nbsp;
+								<input type="text" id="inputPhone3" style="width: 80px;">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td scope="col">이메일<b style="color: red;">&nbsp;*</b></td>
+						<td>
+							<div style="display: inline-block;">
+								<input type="text" id="inputEmail" style="width: 120px;">&nbsp;@&nbsp;
+								<select id="inputEmailUrl">
+									<option selected>==선택하기==</option>
+									<option>naver.com</option>
+									<option>gmail.com</option>
+									<option>kakao.com</option>
+								</select>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td scope="col">배송메세지</td>
+						<td>
+							<textarea cols="40" rows="3"></textarea>
+						</td>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+		<div class="discount-list">
+			<table class="table">
+				<caption style="caption-side: top;">결제 예정금액</caption>
+				<tbody>
+					<tr>
+						<td scope="col">총 할인금액</td>
+						<td>
+							9000원
+						</td>
+
+					</tr>
+					<tr>
+						<td scope="col">최종 결제금액</td>
+						<td>
+							12500원
+						</td>
+
+					</tr>
+					<tr>
+						<td scope="col">쿠폰 할인</td>
+						<td>
+							<button class="custom-btn btn"
+							data-bs-toggle="modal" data-bs-target="#modal-coupon">쿠폰 적용</button>
+						</td>
+					</tr>
+					<tr>
+						<td scope="col">적립금</td>
+						<td>
+							<input type="text" id="point" style="width: 90px;"> 원(총 사용 가능 적립금 : <span
+								style="color: red;">0</span>원)
+							<br>
+							<ul class="info">
+								<li>적립금은 최소 0 이상일 때 결제가 가능합니다.</li>
+								<li id="mileage_max_unlimit" class="displaynone">최대 사용금액은 제한이 없습니다.</li>
+								<li id="mileage_max_limit" class="">1회 구매시 적립금 최대 사용금액은 3,000원입니다.</li>
+								<li>적립금으로만 결제할 경우, 결제금액이 0으로 보여지는 것은 정상이며 [결제하기] 버튼을 누르면 주문이 완료됩니다.</li>
+								<li id="mileage_shipfee" class="displaynone">적립금 사용 시 배송비는 적립금으로 사용 할 수 없습니다.</li>
+								<li id="mileage_exception" class="">적립금 사용 시 해당 상품에 대한 적립금은 적립되지 않습니다.</li>
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+		<div class="pay-list">
+			<table class="table">
+				<caption style="caption-side: top;">결제수단</caption>
+				<tbody>
+					<tr>
+						<td style="width: 60%;">
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="radio-pay" id="pay1" value="option1">
+								<label class="form-check-label" for="pay1">무통장 입금</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="radio-pay" id="pay2" value="option1">
+								<label class="form-check-label" for="pay2">카드 결제</label>
+							</div>
+						</td>
+						<td style="width: 40%;" rowspan="2">
+							<p>무통장 입금 최종 결제 금액</p>
+							<h2>12,500원</h2>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="check-pay">
+								<label class="form-check-label" for="check-pay">
+									결제정보를 확인했으며, 구매 진행에 동의합니다.
+								</label>
+							</div>
+							<btn class="custom-btn btn">결제하기</btn>
+							<div>
+								<dl>
+									<dt><strong>총 적립예정금액</strong></dt>
+									<dd>1,300원</dd>
+								</dl>
+							</div>
+
+						</td>
+
+					</tr>
+					<tr>
+						<td>
+
+							<!--결제 방식 선택에 따른 화면 출력 / 무통장일 시 은행 선택 등등 .. / 카드 결제면 결제 안내 등등-->
+						</td>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+
+		<!--쿠폰 modal-->
+		<div class="modal fade" id="modal-coupon" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+			aria-labelledby="modal-coupon" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" style="max-width: 450px;">
+				<div class="modal-content">
+					<div class="modal-header" style="border: none;">
+						<h2>쿠폰</h2>
+						<button type="button" class="btn-close" onclick="closeModal()" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body justify-content-center">
+						<p class="mb-3">적용할 쿠폰을 선택해주세요.</p>
+
+						<div class="mb-3">
+							<select id="selectCoupon">
+								<option selected>==쿠폰 선택==</option>
+								<option>20% 생일 축하 쿠폰</option>
+								<option>10% Welcome 쿠폰</option>
+							</select>
+						</div>
+						<div class="mb-3">
+							<div class="coupon-list">
+								<table class="table">
+									<caption style="caption-side: top;">쿠폰 적용 후 결제 금액</caption>
+									<thead>
+										<tr>
+											<th>적용 전 금액</th>
+											<th>할인 금액</th>
+											<th>최종 금액</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>15,500원</td>
+											<td>3,000원</td>
+											<td>12,500원</td>
+										</tr>
+									</tbody>
+
+								</table>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div th:include="./main/footer.html"></div>
+
+		<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+			</script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+		<script src="/js/userinfo/login.js"></script>
+		<script>
+			// 주소 검색 api
+			function searchAddr() {
+				new daum.Postcode({
+					oncomplete: function (data) {
+						document.getElementById('inputAddr').value = data.address;
+					}
+				}).open();
+
+			}
+
+		</script>
+</body>
+
+</html>

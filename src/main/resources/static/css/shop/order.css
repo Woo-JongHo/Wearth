@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+#containter{
+	padding: 20px 100px 20px 100px;
+	justify-content: center !important;
+}
+
+.order-list>table{
+	margin-bottom: 0 !important;
+}
+.shipping-list>btn{
+	border-radius: 30px;
+}
+td{
+	vertical-align:middle !important;
+}
+input, textarea, select{
+	border-color: rgb(227, 227, 227) !important;
+	border-radius: 30px;
+	padding-left: 15px;
+}
+.info>li{
+	text-align: end;
+	color: gray;
+	font-size: 12px;
+}

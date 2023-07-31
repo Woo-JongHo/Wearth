@@ -1,5 +1,8 @@
 package com.example.demo.vo;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -16,11 +19,11 @@ public class UsersVO {
 	private String id;
 	private String pwd;
 	private String u_name;
-	private String date_birth;
+	private LocalDate date_birth;
 	private String gender;
 	private String email;
 	private String nickname;
-	private String date_reg;
+	private LocalDate date_reg;
 	private String residence;
 	private String phone;
 	private int point;

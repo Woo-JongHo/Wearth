@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Single Product</title>
+	<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    }
+}
+	</script>
+	<style>
+	@import url('//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+.tone {
+	width: 200px;
+	height: 75px;
+	background-color: #2BA5DC;
+	padding: 10px;
+	box-sizing: border-box;
+}
+h1 {
+	font-family: 'open sans' !important;
+	font-size: 15pt !important;
+	color: white !important;
+	font-weight: bold !important;
+	letter-spacing: 1pt;
+}
+h2 {
+	font-family: 'open sans' !important;
+	font-size: 14pt !important;
+	color: white !important;
+	font-weight: normal !important;
+}
+h3 {
+	font-family: 'open sans' !important;
+	font-size: 13pt !important;
+	font-weight: bold !important;
+	color: black;
+	text-decoration: underline;
+}
+p {
+	font-family: 'open sans';
+	font-size: 11pt;
+	margin-top: -15px;
+}
+.expandedcontent {
+	padding-top: 15px;
+	display:inline-block;
+}
+table {
+margin-top: 5px;
+}
+th {
+	text-decoration: underline;
+	font-family: 'raleway';
+	font-size: 14pt;
+	text-transform: uppercase;
+	background-color: #6E6A6F;
+	color: white;
+	padding-left: 10px;
+}
+td {
+	font-family: 'open sans';
+	font-size: 11pt;
+	color: black;
+}
+
+button.accordion {
+    background-color: white;
+    color: #444;
+    cursor: pointer;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+		height: 40px;
+		border-bottom: 1px solid rgba(0,0,0,.12);
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: rgba(0,0,0,.12);
+}
+
+div.panel {
+    padding: 0 18px;
+    display: none;
+}
+.callid {
+	color: #46809C !important;
+	font-family: 'open sans' !important;
+	font-size: 12pt !important;
+}
+i {
+	color: white;
+	float: left;
+	margin-right: 15px;
+}
+	</style>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Colo Shop Template">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/css/main/style.css">
+	<link rel="stylesheet" href="/css/main/responsive.css">
+	<link rel="stylesheet" href="/css/main/custom.css">
+	<link rel="stylesheet" href="/css/main/sidebar.css">
+	<link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="css/shop/detail/styles/bootstrap4/bootstrap.min.css">
+	<link href="shop/detail/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="css/shop/detail/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="css/shop/detail/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="css/shop/detail/plugins/OwlCarousel2-2.2.1/animate.css">
+	<link rel="stylesheet" href="shop/detail/plugins/themify-icons/themify-icons.css">
+	<link rel="stylesheet" type="text/css" href="css/shop/detail/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="css/shop/detail/styles/single_styles.css">
+	<link rel="stylesheet" type="text/css" href="css/shop/detail/styles/single_responsive.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+</head>
+
+<body>
+	<div th:include="main/header.html"></div>
+
+	<div class="super_container">
+
+
+		<div class="container single_product_container">
+			<div class="row">
+				<div class="col">
+
+					<!-- Breadcrumbs -->
+
+					<div class="breadcrumbs d-flex flex-row align-items-center">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="categories.html"><i class="fa fa-angle-right" aria-hidden="true"></i>식품</a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+
+			
+				<div class="col-lg-5">
+					<div class="product_details">
+						<div class="product_details_title">
+							<h2>[소락]천연수세미세트</h2>
+							<p>[원산지]대한민국</p>
+						</div>
+						<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
+							<span class="ti-truck"></span><span>배송비 : 3000원</span>
+						</div>
+						<div class="original_price">5000원</div>
+						<div class="product_price">4000원</div>
+						<ul class="star_rating">
+							<li><i class="fa fa-star" aria-hidden="true"></i></li>
+							<li><i class="fa fa-star" aria-hidden="true"></i></li>
+							<li><i class="fa fa-star" aria-hidden="true"></i></li>
+							<li><i class="fa fa-star" aria-hidden="true"></i></li>
+							<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+						</ul>
+						<div class="product_color">
+							<span>Select Color:</span>
+							<ul>
+								<li style="background: #e54e5d"></li>
+								<li style="background: #252525"></li>
+								<li style="background: #60b3f3"></li>
+							</ul>
+						</div>
+						<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center" >
+							<span>수량:</span>
+							<div class="quantity_selector">
+								<span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
+								<span id="quantity_value">1</span>
+								<span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
+							</div>
+							<div class="product_favorite d-flex flex-column align-items-center justify-content-center" >
+							</div>
+						</div>
+						<div id="free_delivery d-flex flex-row align-items-center justify-content-center" style="margin-top: 30px;">
+							<div style="justify-content: space-between; display: flex;">
+								<button id="btn_pay">구매하기</button>
+								<button id="btn_pay">장바구니</button>
+							</div>
+							<button id="btn_pay2">Npay 구매하기</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+
+<div class="tone">
+		<h1>Average Tone</h1>
+		<h2>Irrational</h2>
+</div>
+<table class='col-md-6'>
+	<tr>
+		<th>Call ID</th>
+		<th>Date & Time</th>
+		<th>Problem</th>
+		<th>Agent</th>
+	</tr>
+</table>
+<button class="accordion col-md-6">
+	<table class="col-md-12">
+		<tr>
+			<td class="callid">22627</td>
+			<td>10-1-17 10:11 AM</td>
+			<td>Couldn't Read Fax</td>
+			<td>EBARRUS</font></td>
+		</tr>
+	</table>
+</button>
+<div class="panel col-md-6">
+	<div class="row col-md-12">
+		<div class="col-md-6 expandedcontent">
+		<h3>Problem Description</h3>
+		<p>The doctor said that she didn't like us very much.The doctor said that she didn't like us very much.The doctor said that she didn't like us very much.</p>
+		</div>
+		<div class="col-md-6 expandedcontent">
+			<h3>Resolution</h3>
+			<p>The doctor said she will not talk to us anymore.The doctor said that she didn't like us very much.The doctor said that she didn't like us very much.The doctor said that she didn't like us very much.</p>
+		</div>
+		<div class="col-md-6 expandedcontent">
+			<h3>Tone</h3>
+			<p>Irrational</p>
+		</div>
+			<div class="col-md-6 expandedcontent">
+			<h3>Contact Name</h3>
+			<p>Bobby</p>
+			</div>
+	</div>
+</div>
+
+<button class="accordion col-md-6 callid">
+	<table class="col-md-12">
+		<tr>
+			<td class="callid">22627</td>
+			<td>10-1-17 10:11 AM</td>
+			<td>Couldn't Read Fax</td>
+			<td>EBARRUS</font></td>
+		</tr>
+	</table>
+</button>
+
+<div class="panel col-md-6">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="callid col-md-6 accordion">
+		<table class="col-md-12">
+		<tr>
+			<td class="callid">22627</td>
+			<td>10-1-17 10:11 AM</td>
+			<td>Couldn't Read Fax</td>
+			<td>EBARRUS</td>
+		</tr>
+	</table>	
+</button>
+<div class="panel col-md-6">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion col-md-6 callid">
+		<table class="col-md-12">
+		<tr>
+			<td class="callid">22627</td>
+			<td>10-1-17 10:11 AM</td>
+			<td>Couldn't Read Fax</td>
+			<td>EBARRUS</font></td>
+		</tr>
+	</table>
+</button>
+<div class="panel col-md-6">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion col-md-6 callid">
+		<table class="col-md-12">
+		<tr>
+			<td class="callid">22627</td>
+			<td>10-1-17 10:11 AM</td>
+			<td>Couldn't Read Fax</td>
+			<td>EBARRUS</font></td>
+		</tr>
+	</table>
+</button>
+<div class="panel col-md-6">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="callid col-md-6 accordion">
+		<table class="col-md-12">
+		<tr>
+			<td class="callid">22627</td>
+			<td>10-1-17 10:11 AM</td>
+			<td>Couldn't Read Fax</td>
+			<td>EBARRUS</font></td>
+		</tr>
+	</table>
+</button>
+<div class="panel col-md-6">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+		</div>
+		<!--footer-->
+		<div th:include="main/footer.html"></div>
+
+	</div>
+
+	<script src="css/shop/detail/js/jquery-3.2.1.min.js"></script>
+	<script src="css/shop/detail/styles/bootstrap4/popper.js"></script>
+	<script src="css/shop/detail/styles/bootstrap4/bootstrap.min.js"></script>
+	<script src="css/shop/detail/plugins/Isotope/isotope.pkgd.min.js"></script>
+	<script src="css/shop/detail/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+	<script src="css/shop/detail/plugins/easing/easing.js"></script>
+	<script src="css/shop/detail/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+	<script src="css/shop/detail/js/single_custom.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
