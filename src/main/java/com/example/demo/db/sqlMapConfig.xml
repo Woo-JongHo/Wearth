@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<properties resource="com/example/demo/db/db.properties"></properties>
+<typeAliases>
+	<typeAlias type="com.example.demo.entity.Education" alias="educationVO"/>
+	<typeAlias type="com.example.demo.entity.Lecture" alias="lectureVO"/>
+	<typeAlias type="com.example.demo.entity.Opinion" alias="opinionVO"/>
+	<typeAlias type="com.example.demo.entity.TraningRequest" alias="traningRequestVO"/>
+</typeAliases>
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+    <mapper resource="com/example/demo/db/educationMapper.xml"/>
+    <mapper resource="com/example/demo/db/lectureMapper.xml"/>
+    <mapper resource="com/example/demo/db/opinionMapper.xml"/>
+    <mapper resource="com/example/demo/db/traningRequestMapper.xml"/>
+  </mappers>
+</configuration>

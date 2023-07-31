@@ -1,0 +1,79 @@
+
+
+
+#yearmonth {
+  white-space: pre; /* 띄어쓰기 유지 */
+}
+
+
+table {
+		margin-top: 20px;
+		margin-bottom: 50px;
+		border-collapse: collapse;
+    	width: 800px;
+    }
+
+th, td {
+      width: 14%;
+      height: 150px;
+      padding: 10px; /* 셀 내용과 테두리 사이의 여백 조절 */
+      font-size: 20px; /* 글꼴 크기 조절 */
+      border: 0px solid #ccc; /* 셀 테두리 두께 조절 */
+      line-height: 15px; /* 텍스트 줄 간격을 15px로 지정 (텍스트가 최대 두 줄까지 표시되므로 15px*2 = 30px) */
+      overflow: hidden; /* 텍스트가 셀 영역을 넘어갈 경우 숨김 처리 */
+}
+th{
+	font-weight: bold;
+}
+   
+	
+	.date{
+		display: flex;
+		font-size:30px; 
+		font-weight: bold; 
+		margin-top: 40px;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+  		
+	}
+	
+	.month{
+		display: flex;
+		font-size:20px; 
+		font-weight: bold; 
+		margin-top: 40px;
+		align-items: center;
+		justify-content: center;
+		
+	}
+	
+	.today{
+		display: flex;
+		font-size:20px; 
+		font-weight: bolder; 
+		margin-top: 40px;
+		align-items: center;
+		justify-content: center;
+	}
+	
+	.title{
+		font-size: 14px;
+  		background-color: rgba(127, 255, 0, 0.1); /* 불투명도 값을 0.5로 설정 */
+		font-weight: bold;
+		padding: 5px;
+	}
+	
+	.table-bordered>:not(caption)>*>* {
+    border-width: 0px;
+}
+
+	.calendar{
+		
+		margin-top: 50px;
+		margin-bottom: 20px;
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+	}

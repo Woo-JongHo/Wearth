@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal Grid Example</title>
+  <style>
+/* 오버레이 스타일 */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* 모달 배경색을 어둡게 설정합니다. */
+  z-index: 9999;
+}
+
+/* 모달 그리드 스타일 */
+.modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 왼쪽/오른쪽 화면을 동일한 너비로 설정합니다. */
+  gap: 20px; /* 화면 사이의 간격을 조정합니다. */
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff; /* 모달 내용의 배경색을 설정합니다. */
+  padding: 20px; /* 모달 내용의 여백을 설정합니다. */
+  height: 80%;
+  max-width: 80%; /* 모달의 최대 너비를 800px로 제한합니다. */
+  border-radius: 10px; /* 모달의 테두리를 둥글게 설정합니다. */
+}
+
+/* 이미지를 감싸는 왼쪽 화면 스타일 */
+.modal-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 이미지 스타일 */
+.modal-left img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* 내용이 들어가는 오른쪽 화면 스타일 */
+.modal-right {
+  color: #000;
+}
+
+/* 모달 버튼 스타일 */
+.modal-button {
+  margin: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+  </style>
+</head>
+<body>
+<!-- 부트스트랩 카드 -->
+  <div class="card" style="width: 18rem;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <img src="/images/education/edu2.jpg" class="card-img-top" alt="Example Image">
+    <div class="card-body">
+      <h5 class="card-title">카드 제목</h5>
+      <p class="card-text">카드 내용</p>
+    </div>
+  </div>
+
+  <!-- 모달 -->
+  <div class="modal-overlay" id="exampleModal">
+    <div class="modal-grid">
+      <!-- 왼쪽 화면 - 이미지 -->
+      <div class="modal-left">
+        <img src="/images/education/edu2.jpg" alt="Example Image">
+      </div>
+      <!-- 오른쪽 화면 - 내용 -->
+      <div class="modal-right">
+        <h2>Modal Content</h2>
+        <p>This is the content of the modal. You can put any information or text here.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+    <!-- 부트스트랩과 함께 사용할 JavaScript 라이브러리 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+  <script>
+  // 모달 그리드를 표시할 카드 선택
+  const card = document.querySelector('.card');
+
+  // 모달 그리드와 오버레이 선택
+  const modalOverlay = document.querySelector('.modal-overlay');
+
+  // 카드를 클릭하면 모달 그리드 표시
+  card.addEventListener('click', () => {
+    modalOverlay.style.display = 'block';
+  });
+
+  // 오버레이 클릭 시 모달 그리드 닫기
+  modalOverlay.addEventListener('click', (event) => {
+    if (event.target === modalOverlay) {
+      modalOverlay.style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>

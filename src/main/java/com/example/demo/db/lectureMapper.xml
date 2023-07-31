@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lecture">
+<!-- 특정 날짜의 일정 목록 가져오기 -->
+  <select id="findBylecDateList" resultType="lectureVO">
+	 select * from lecture where lecdate = #{lecDate}
+  </select>
+ 
+ 	<select id="listDate" resultType="lectureVO">
+ 		select distinct to_char(to_date(lecDate), 'dd') from lecture where to_char(to_date(add_months(lecDate,-1)), 'yyyy/mm') = #{lecDate}
+ 	</select>
+ 	
+ 	<insert id="insertLecture" parameterType="lectureVO">
+ 	insert into lecture values (seq_lecture.nextval,#{lecName},#{leccontent},to_date(#{lecdate},'yyyy/mm/dd'),#{lecaddr},#{lecturer},#{lecapp},#{lecphone},#{lecprice},#{lecfile},sysdate)
+ 	</insert>
+ 	
+ 	<update id="updateLecture" parameterType="lectureVO">
+ 	update lecture set lecName=#{lecName},leccontent=#{leccontent},lecdate=#{lecdate},lecaddr=#{lecaddr},lecturer=#{lecturer},lecapp=#{lecapp}, lecphone=#{lecphone},lecprice=#{lecprice},lecfile=#{lecfile} where lecNo=#{lecNo}
+ 	</update>
+ 	
+ 	<delete id="deleteLecture" parameterType="lectureVO">
+ 		delete lecture where lecNo = #{lecNo}
+ 	</delete>
+</mapper>

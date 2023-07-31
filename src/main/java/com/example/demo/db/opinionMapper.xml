@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="opinion">
+  <select id="findAllOpinion" resultType="opinionVO">
+   select opinionNO, eduNo, goodsNo, userNo, ID, opinionName, opinionContent, opinionDate, opinionSecret, opinionPwd, opinionStatus, opinionScore, answerNo from (select rownum n, opinionNO, eduNo, goodsNo, userNo, ID, opinionName, opinionContent, opinionDate, opinionSecret, opinionPwd, opinionStatus, opinionScore, answerNo from (select * from opinion order by opinionNO desc))a where a.n between #{start} and #{end}
+  </select>
+ 
+ 	<select id="findByNoOpinion" resultType="opinionVO">
+ 		select * from opinion where opinionNO = #{opinionNO}
+ 	</select>
+ 	
+ 	<select id="getTotalRecordOpinion" resultType="java.lang.Integer">
+ 		select count(*) from opinion
+ 	</select>
+ 	
+ 	<insert id="insertOpinion" parameterType="opinionVO">
+ 	insert into opinion values (seq_opinion.nextval,#{opinionName},#{opinionContent},#{opinionDate},#{opinionSecret},#{opinionPwd},#{opinionStatus},#{opinionScore},#{answerNo},sysdate)
+ 	</insert>
+ 	
+ 	<update id="updateOpinion" parameterType="opinionVO">
+ 		update opinion set opinionName=#{opinionName},opinionContent=#{opinionContent},opinionSecret=#{opinionSecret},opinionStatus=#{opinionStatus} where opinionNO=#{opinionNO} and opinionPwd=#{opinionPwd}
+ 	</update>
+ 	
+ 	<delete id="deleteOpinion" parameterType="opinionVO">
+ 		delete opinion where opinionNO = #{opinionNO} and opinionPwd = #{opinionPwd}
+ 	</delete>
+</mapper>

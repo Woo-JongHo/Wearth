@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+
+	/*상세페이지*/
+	.col-md-8 {
+	    flex: 0 0 auto;
+	    width: 60%;
+	}
+	
+	.col-md-4 {
+    flex: 0 0 auto;
+    width: 40%;
+	}
+	
+	.detailImg{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-left: 50px;
+		width: 650px;
+		height: 600px;
+	}
+	
+	.btn-group.btn-group-sm {
+		  display: flex;
+		  width: 100%;
+		  float: left;
+		  margin-top: 30px;
+		  margin-bottom: 50px;
+		}
+		
+	.btn-outline-secondary {
+    --bs-btn-color: rgb(106, 106, 106);
+    --bs-btn-border-color:#f3f3f3;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #f3f3f3;
+    --bs-btn-hover-border-color: #f3f3f3;
+    --bs-btn-focus-shadow-rgb: 108,117,125;
+    --bs-btn-active-color: rgb(106, 106, 106);
+    --bs-btn-active-bg: #f3f3f3;
+    --bs-btn-active-border-color: #f3f3f3;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #f3f3f3;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color:#f3f3f3;
+    --bs-gradient: none;
+	}
+	
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      
+      
+      
+      
+      body {
+  background-color: aliceblue;
+  font-family: sans-serif;
+  text-align: center;
+}
+button {
+  background-color: cadetblue;
+  color: whitesmoke;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 7px;
+  padding: 15px 35px;
+  cursor: pointer;
+  white-space: nowrap;
+  margin: 10px;
+}
+img {
+  width: 200px;
+}
+input[type="text"] {
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+h1 {
+  border-bottom: solid 2px grey;
+}
+#success {
+  background: green;
+}
+#error {
+  background: red;
+}
+#warning {
+  background: coral;
+}
+#info {
+  background: cornflowerblue;
+}
+#question {
+  background: grey;
+}

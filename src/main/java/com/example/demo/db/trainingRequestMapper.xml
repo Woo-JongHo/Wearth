@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="trainingRequest">
+  <select id="findAllTrainingRequest" resultType="trainingRequestVO">
+    select reqNo, reqTitle, reqContent, reqApp, reqAddr, reqDate, reqCompany, reqPhone, reqSysDate from (select rownum n, reqNo, reqTitle, reqContent, reqApp, reqAddr, reqDate, reqCompany, reqPhone, reqSysDate from (select * from trainingRequest order by reqNo desc))a where a.n between #{start} and #{end}
+  </select>
+ 
+ 	<select id="findByNoTrainingRequest" resultType="trainingRequestVO">
+ 		select * from trainingRequest where reqNo = #{reqNo}
+ 	</select>
+ 	
+ 	<select id="getTotalRecordTrainingRequest" resultType="java.lang.Integer">
+ 		select count(*) from trainingRequest
+ 	</select>
+ 	
+ 	<insert id="insertTrainingRequest" parameterType="trainingRequestVO">
+ 	insert into trainingRequest values (seq_education.nextval,#{reqTitle},#{reqContent},#{reqApp},#{reqAddr},#{reqDate},#{reqCompany},#{reqPhone}, sysdate)
+ 	</insert>
+ 	
+ 	<update id="updateTrainingRequest" parameterType="trainingRequestVO">
+ 		update trainingRequest set reqTitle=#{reqTitle},reqContent=#{reqContent},reqApp=#{reqApp},reqAddr=#{reqAddr},reqDate=#{reqDate},reqCompany=#{reqCompany},reqCompany=#{reqCompany} where reqNo=#{reqNo}
+ 	</update>
+ 	
+ 	<delete id="deleteTrainingRequest" parameterType="trainingRequestVO">
+ 		delete trainingRequest where reqNo = #{reqNo}
+ 	</delete>
+</mapper>
