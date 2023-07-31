@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>실천하기</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	
+	<link rel="stylesheet" href="../css/main/style.css"/>
+	<link rel="stylesheet" href="../css/act/volunteerMain.css" />
+	<link rel="stylesheet" href="../css/style.css" />
+	
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+<style>
+.custom-btn{
+	border: none;
+	border-radius: 0.4rem;
+}
+.search-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.option {
+	gap: 0.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.option label {
+  margin-right: 4px;
+  
+}
+
+.option input[type="date"],
+.option input[type="text"] {
+	margin-right: 2px;
+}
+.location-option {
+  display: flex;
+  align-items: center;
+}
+.option select{
+	height:32px;
+}
+.location-option select {
+	margin-left: 2px;
+  margin-right: 2px;
+  height: 32px;
+}	
+
+/*봉사글 리스트*/
+table {
+	text-align: center;
+}
+tr:hover{
+	cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+	<div class="container">
+		<!--header-->
+		<div th:include="/main/header.html"></div>
+		
+		<!--타이틀_봉사하기-->
+		<div class="title">
+			<div class="mainTitle"><h2 class="mainTitle">봉사하기</h2></div>
+			<div class="subTitle">환경지킴이가 되어보기!</div>	
+		</div>
+		
+		<!--메인상단-->
+		<div class="row upperPart">
+		
+		<!--검색옵션 -->
+		<div class="search-options">
+		  <div class="option">
+		    <label for="volunteer-period">기간</label>
+		    <input type="date" id="volunteer-period-start" name="volunteer-period-start">
+		    <span>&nbsp;~&nbsp;</span>
+		    <input type="date" id="volunteer-period-end" name="volunteer-period-end">
+		  </div>
+		  
+		  <div class="option">
+		    <!--<label for="volunteer-attributes">봉사명, 위치</label>-->
+		    <div>
+				<select id="volunteer-attributes" name="volunteer-attributes">
+		  	 	   <option value="volunteer-name">제목</option>
+		  	 	   <option value="volunteer-location">위치</option>
+				</select>
+			</div>
+		    <div class="location-option" style="display:none;">
+			    <select id="location" name="location">
+			      <option value="location-1">서울</option>
+			      <option value="location-2">경기</option>
+			      <option value="location-2">인천</option>
+			      <!-- 다른 위치 옵션들도 추가할 수 있습니다. -->
+				  </select>
+		  </div>
+		    <div class="option">
+		    <input type="text" id="search-keyword" name="search-keyword" placeholder="검색어를 입력하세요.">
+		  </div>
+		  
+		  <div class="option">
+		    <button class="custom-btn" type="submit" id="search-button">검색</button>
+		    <button class="custom-btn" type="reset" id="reset-button">초기화</button>
+		  </div>
+		  </div>
+		  
+		</div>
+			<script>
+				document.getElementById("volunteer-attributes").addEventListener("change", function() {
+				  const locationOption = document.querySelector(".location-option");
+				  const selectedValue = this.value;
+
+					  if (selectedValue === "volunteer-location") {
+					    locationOption.style.display = "flex";
+					  } else {
+					    locationOption.style.display = "none";
+					  }
+					});
+			</script>
+		
+		<!--봉사 글 목록-->
+	 	<table class="table table-hover">
+			<thead class="table-light">
+				<tr>
+		 			<th>번호</th>
+		 			<th colspan="2">제목</th>
+		 			<th></th>
+	 			</tr>
+			</thead>
+	 		<tbody>
+				 <tr class="volunteerList">	<!--onClick 속성 부여하여 url 이동-->
+					 <td style="padding: 0.5rem; vertical-align: middle;">1</td>
+					 <td colspan="2" style="text-align: left;">
+						<div>2023 우리 같이 플로깅 자원봉사자 모집</div>
+						 <div>[모집기관] 계양구자원봉사센터 &nbsp;&nbsp;[봉사기간] 2023-03-18 ~ 2023-06-18</div>
+					 </td>
+					 <td style="padding: 0.5rem; vertical-align: middle;">모집중</td>
+				 </tr>
+				  <tr class="volunteerList">
+					 <td style="padding: 0.5rem; vertical-align: middle;">1</td>
+					 <td colspan="2" style="text-align: left;">
+						<div>2023 우리 같이 플로깅 자원봉사자 모집</div>
+						 <div>[모집기관] 계양구자원봉사센터 &nbsp;&nbsp;[봉사기간] 2023-03-18 ~ 2023-06-18</div>
+					 </td>
+					 <td style="padding: 0.5rem; vertical-align: middle;">모집중</td>
+				 </tr>
+				  <tr class="volunteerList">
+					 <td style="padding: 0.5rem; vertical-align: middle;">1</td>
+					 <td colspan="2" style="text-align: left;">
+						<div>2023 우리 같이 플로깅 자원봉사자 모집</div>
+						 <div>[모집기관] 계양구자원봉사센터 &nbsp;&nbsp;[봉사기간] 2023-03-18 ~ 2023-06-18</div>
+					 </td>
+					 <td style="padding: 0.5rem; vertical-align: middle;">모집중</td>
+				 </tr>
+				  <tr class="volunteerList">
+					 <td style="padding: 0.5rem; vertical-align: middle;">1</td>
+					 <td colspan="2" style="text-align: left;">
+						<div>2023 우리 같이 플로깅 자원봉사자 모집</div>
+						 <div>[모집기관] 계양구자원봉사센터 &nbsp;&nbsp;[봉사기간] 2023-03-18 ~ 2023-06-18</div>
+					 </td>
+					 <td style="padding: 0.5rem; vertical-align: middle;">모집중</td>
+				 </tr>
+				  <tr class="volunteerList">
+					 <td style="padding: 0.5rem; vertical-align: middle;">1</td>
+					 <td colspan="2" style="text-align: left;">
+						<div>2023 우리 같이 플로깅 자원봉사자 모집</div>
+						 <div>[모집기관] 계양구자원봉사센터 &nbsp;&nbsp;[봉사기간] 2023-03-18 ~ 2023-06-18</div>
+					 </td>
+					 <td style="padding: 0.5rem; vertical-align: middle;">모집중</td>
+				 </tr>
+				  <tr class="volunteerList">
+					 <td style="padding: 0.5rem; vertical-align: middle;">1</td>
+					 <td colspan="2" style="text-align: left;">
+						<div>2023 우리 같이 플로깅 자원봉사자 모집</div>
+						 <div>[모집기관] 계양구자원봉사센터 &nbsp;&nbsp;[봉사기간] 2023-03-18 ~ 2023-06-18</div>
+					 </td>
+					 <td style="padding: 0.5rem; vertical-align: middle;">모집중</td>
+				 </tr>
+				  <tr class="volunteerList">
+					 <td style="padding: 0.5rem; vertical-align: middle;">1</td>
+					 <td colspan="2" style="text-align: left;">
+						<div>2023 우리 같이 플로깅 자원봉사자 모집</div>
+						 <div>[모집기관] 계양구자원봉사센터 &nbsp;&nbsp;[봉사기간] 2023-03-18 ~ 2023-06-18</div>
+					 </td>
+					 <td style="padding: 0.5rem; vertical-align: middle;">모집중</td>
+				 </tr>
+				  <tr class="volunteerList">
+					 <td style="padding: 0.5rem; vertical-align: middle;">1</td>
+					 <td colspan="2" style="text-align: left;">
+						<div>2023 우리 같이 플로깅 자원봉사자 모집</div>
+						 <div>[모집기관] 계양구자원봉사센터 &nbsp;&nbsp;[봉사기간] 2023-03-18 ~ 2023-06-18</div>
+					 </td>
+					 <td style="padding: 0.5rem; vertical-align: middle;">모집중</td>
+				 </tr>
+				  <tr class="volunteerList">
+					 <td style="padding: 0.5rem; vertical-align: middle;">1</td>
+					 <td colspan="2" style="text-align: left;">
+						<div>2023 우리 같이 플로깅 자원봉사자 모집</div>
+						 <div>[모집기관] 계양구자원봉사센터 &nbsp;&nbsp;[봉사기간] 2023-03-18 ~ 2023-06-18</div>
+					 </td>
+					 <td style="padding: 0.5rem; vertical-align: middle;">모집중</td>
+				 </tr>
+				  <tr class="volunteerList">
+					 <td style="padding: 0.5rem; vertical-align: middle;">1</td>
+					 <td colspan="2" style="text-align: left;">
+						<div>2023 우리 같이 플로깅 자원봉사자 모집</div>
+						 <div>[모집기관] 계양구자원봉사센터 &nbsp;&nbsp;[봉사기간] 2023-03-18 ~ 2023-06-18</div>
+					 </td>
+					 <td style="padding: 0.5rem; vertical-align: middle;">모집중</td>
+				 </tr>
+			 </tbody>
+	 		
+	 	</table>
+		<!--페이지네이션-->
+		<div class="grid text-center" style="--bs-columns: 4">
+			<nav aria-label="Page navigation example">
+			  <ul class="pagination justify-content-center">
+			    <li class="page-item">
+			      <a class="page-link" href="#" aria-label="Previous">
+			        <span aria-hidden="true">&laquo;</span>
+			      </a>
+			    </li>
+			    <li class="page-item"><a class="page-link" href="#">1</a></li>
+			    <li class="page-item"><a class="page-link" href="#">2</a></li>
+			    <li class="page-item"><a class="page-link" href="#">3</a></li>
+			    <li class="page-item">
+			      <a class="page-link" href="#" aria-label="Next">
+			        <span aria-hidden="true">&raquo;</span>
+			      </a>
+			    </li>
+			  </ul>
+			</nav>
+		</div>
+		
+		<!--footer-->
+		<div th:include="/main/footer.html"></div>
+		
+	</div>
+</body>
+</html>

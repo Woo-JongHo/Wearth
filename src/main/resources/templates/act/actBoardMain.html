@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>실천하기</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	
+	<link rel="stylesheet" href="../css/main/style.css"/>
+	<link rel="stylesheet" href="../css/act/actBoardMain.css" />
+	<link rel="stylesheet" href="../css/act/actBoardDetail.css" />
+	<link rel="stylesheet" href="../css/style.css" />
+	
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script>
+	$(document).ready(function () {
+		let isLiked = false;
+
+		$(".like-button").click(function () {
+			// isLiked 변수를 토글
+			isLiked = !isLiked;
+
+			// .liked 클래스를 토글하여 좋아요 버튼 스타일 변경
+			$(this).toggleClass("liked", isLiked);
+		});
+	});
+
+</script>
+<style>
+.custom-btn{
+	border: none;
+	border-radius: 0.4rem;
+}
+.upperPart{
+	margin-bottom: 2rem;
+}
+
+.card-title{
+	margin: 0;
+}
+	
+/* 오버레이 스타일 */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* 모달 배경색을 어둡게 설정 */
+  z-index: 9999;
+}
+
+/* 모달 그리드 스타일 */
+.modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 왼쪽/오른쪽 화면을 동일한 너비로 설정합니다. */
+  gap: 20px; /* 화면 사이의 간격을 조정합니다. */
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff; /* 모달 내용의 배경색을 설정합니다. */
+  padding: 20px; /* 모달 내용의 여백을 설정합니다. */
+  /*height: 80%;*/
+  max-width: 80%; /* 모달의 최대 너비 제한. */
+  border-radius: 10px;
+}
+
+/* 이미지를 감싸는 왼쪽 화면 스타일 */
+.modal-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* 이미지 스타일 */
+.modal-left img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* 내용이 들어가는 오른쪽 화면 스타일 */
+.modal-right {
+	display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  	color: #000;
+}
+
+/* 댓글 작성자와 댓글 내용을 같은 줄에 가로로 표시 */
+.commentArea {
+	height: 40%;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.commentWriter {
+	display: flex;
+  font-weight: bold;
+}
+
+.commentContent {
+	display: flex;
+  margin-left: 10px;
+}
+
+/* 댓글 입력 필드 스타일 */
+#addComment {
+	width: 80%;
+  flex: 1; /* 이 부분을 추가하여 입력 필드가 남은 공간을 모두 차지하도록 설정합니다. */
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* 게시 버튼 스타일 */
+#btn_addComment {
+  margin-left: 8px; /* 버튼과 입력 필드 사이의 간격을 설정합니다. */
+  padding: 8px 10px;
+  font-size: 16px;
+  background-color: #43a06f;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  letter-spacing: 4px;
+}
+/* 모달 닫기 버튼 스타일 */
+.modal-close-btn {
+  position: absolute;
+  top: -4px;
+  right: 10px;
+  font-size: 24px;
+  color: #000;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<!--header-->
+		<div th:include="/main/header.html"></div>
+		
+		<!--타이틀_실천하기-->
+		<div class="title">
+			<div class="mainTitle"><h2 class="mainTitle">실천하기</h2></div>
+			<div class="subTitle">오늘의 실천 내용을 나누어 보세요!</div>	
+		</div>
+		
+		
+		<!--메인상단-->
+		<div class="row upperPart">
+		
+			<!--게시글 작성 버튼 -->	
+			<div class="col">
+				<button class="custom-btn btn_write">게시글작성</button>
+			</div>
+			<!--<div class="col"></div>-->
+			<!--검색창-->
+			<div class="col-6">
+				<form class="searchArea" action="" method="post">
+					<input type="text" placeholder="검색어를 입력하세요." id="search"/>
+					<button class="custom-btn btn_serach" id="btn_search">검색</button>
+				</form>
+			</div>
+			
+			<!--최신순/인기-->
+			<div class="col listOption">
+				<ul class="nav justify-content-end">
+				<li class="nav-item">
+				    <a class="nav-link" href="#">최신순</a>
+				</li>
+				<li class="nav-item">
+				    <a class="nav-link">인기순</a>
+				</li>
+			</ul>
+				
+			</div>
+		</div><!--메인상단 끝-->
+		
+		
+		<!--게시글 전체 목록-->
+		<div class="row row-cols-4 actList">
+			<!--게시글 한 개-->
+		<!--	<div class="container mt-3 col" id="actCard">-->
+				<div class="card" data-bs-toggle="modal" data-bs-target="#detailModal">
+					<img class="card-img-top" src="../images/act/image_act_1.jpeg" alt="Card image">
+				    <div class="card-body">
+						<h4 class="card-title">실천게시글 제목</h4>
+						<p class="card-text">실천게시글 내용</p>
+						<p class="card-text">게시글 작성자</p>
+						<!--좋아요, 조회수 영역-->
+						<div class="likeAndHit">
+							<div class="like-button">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+									style="width: 10px; margin-top: -10px; font-weight: 900;" id="heart"
+									class="bi bi-heart" viewBox="0 0 16 16">
+									<path
+										d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+								</svg>
+							</div>
+							<div class="hit">조회수</div>
+						</div>
+					</div>
+				<!--</div>-->
+			</div><!--게시글 한 개 끝-->
+			<!--게시글 한 개-->
+		<!--	<div class="container mt-3 col" id="actCard">-->
+				<div class="card">
+					<img class="card-img-top" src="../images/act/image_act_1.jpeg" alt="Card image">
+				    <div class="card-body">
+						<h4 class="card-title">실천게시글 제목</h4>
+						<p class="card-text">실천게시글 내용</p>
+						<p class="card-text">게시글 작성자</p>
+						<!--좋아요, 조회수 영역-->
+						<div class="likeAndHit">
+							<div class="like-button">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+									style="width: 10px; margin-top: -10px; font-weight: 900;" id="heart"
+									class="bi bi-heart" viewBox="0 0 16 16">
+									<path
+										d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+								</svg>
+							</div>
+							<div class="hit">조회수</div>
+						</div>
+					</div>
+				<!--</div>-->
+			</div><!--게시글 한 개 끝-->
+			<!--게시글 한 개-->
+		<!--	<div class="container mt-3 col" id="actCard">-->
+				<div class="card">
+					<img class="card-img-top" src="../images/act/image_act_1.jpeg" alt="Card image">
+				    <div class="card-body">
+						<h4 class="card-title">실천게시글 제목</h4>
+						<p class="card-text">실천게시글 내용</p>
+						<p class="card-text">게시글 작성자</p>
+						<!--좋아요, 조회수 영역-->
+						<div class="likeAndHit">
+							<div class="like-button">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+									style="width: 10px; margin-top: -10px; font-weight: 900;" id="heart"
+									class="bi bi-heart" viewBox="0 0 16 16">
+									<path
+										d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+								</svg>
+							</div>
+							<div class="hit">조회수</div>
+						</div>
+					</div>
+				<!--</div>-->
+			</div><!--게시글 한 개 끝-->
+			<!--게시글 한 개-->
+		<!--	<div class="container mt-3 col" id="actCard">-->
+				<div class="card">
+					<img class="card-img-top" src="../images/act/image_act_1.jpeg" alt="Card image">
+				    <div class="card-body">
+						<h4 class="card-title">실천게시글 제목</h4>
+						<p class="card-text">실천게시글 내용</p>
+						<p class="card-text">게시글 작성자</p>
+						<!--좋아요, 조회수 영역-->
+						<div class="likeAndHit">
+							<div class="like-button">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+									style="width: 10px; margin-top: -10px; font-weight: 900;" id="heart"
+									class="bi bi-heart" viewBox="0 0 16 16">
+									<path
+										d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+								</svg>
+							</div>
+							<div class="hit">조회수</div>
+						</div>
+					</div>
+				<!--</div>-->
+			</div><!--게시글 한 개 끝-->
+			<!--게시글 한 개-->
+		<!--	<div class="container mt-3 col" id="actCard">-->
+				<div class="card">
+					<img class="card-img-top" src="../images/act/image_act_1.jpeg" alt="Card image">
+				    <div class="card-body">
+						<h4 class="card-title">실천게시글 제목</h4>
+						<p class="card-text">실천게시글 내용</p>
+						<p class="card-text">게시글 작성자</p>
+						<!--좋아요, 조회수 영역-->
+						<div class="likeAndHit">
+							<div class="like-button">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+									style="width: 10px; margin-top: -10px; font-weight: 900;" id="heart"
+									class="bi bi-heart" viewBox="0 0 16 16">
+									<path
+										d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+								</svg>
+							</div>
+							<div class="hit">조회수</div>
+						</div>
+					</div>
+				<!--</div>-->
+			</div><!--게시글 한 개 끝-->
+		</div><!--게시글 리스트 끝-->
+		
+		<!--모달디테일-->
+		<!-- Modal -->
+		<!--<div class="modal" id="detailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content modal-fullsize">
+					모달 제목(게시글 제목, 작성자)
+		   			<div class="modal-header">
+						<div class="headerTop">
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							<h2 class="modal-title fs-5" id="exampleModalLabel">실천게시글 제목1</h2>
+								
+						</div>
+		       			<p class="headerBottom">게시글 작성자</p>
+		       		</div>모달 제목 끝
+		       		
+		       		모달 내부 컨텐츠
+		       		<div class="modal-body">
+						 왼쪽 이미지 구역
+		        		<div class="modal-left">
+							<div class="boardImg">
+								<img class="contentImage" src="../images/act/image_act_1.jpeg"/>
+							</div>
+						</div>
+						오른쪽 내용/댓글 구역
+						<div class="modal-right">
+							<div class="rightTop">
+				 				<div id="actContent" style="border:1px solid">내용 구역</div>
+								<div id="actComments" style="border:1px solid">댓글 구역</div>
+							</div>
+							<form class="addComment rightBottom" action="" method="post">
+								<input type="text" placeholder="댓글을 입력하세요." id="addComment"/>
+								<button class="btn_addComment" id="btn_addComment">게시</button>
+							</form>
+						</div>
+		      		</div>모달 컨텐츠 구역 끝
+		      		모달 footer
+		      		<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+		 		</div>
+		 	</div>
+		</div>--><!--모달 끝-->
+		  <!-- 모달 -->
+		  <div class="modal-overlay" id="detailModal">
+		    <div class="modal-grid">
+				<!--상단 모달 닫기 버튼-->
+				<div class="modal-close-btn" onclick="closeModal()">
+			      <span>&times;</span>
+			    </div>
+		      <!-- 왼쪽 화면 - 이미지 -->
+		      <div class="modal-left">
+				  <img class="contentImage" src="../images/act/image_act_1.jpeg"/>
+		      </div>
+		      <!-- 오른쪽 화면 - 내용 -->
+		      <div class="modal-right">
+				 <div>
+					   <h2 >실천게시글 제목</h2>
+		       			<p>게시글 작성자</p>
+				 </div>
+		        <div style="height: 40%;">실천게시글 내용</div>	<!--스크롤-->
+		        <div class="commentArea">	<!--스크롤-->
+					<div class="commentWriter">댓글작성자</div>
+					<div class="commentContent">댓글내용</div>					
+				</div>
+				<div>
+					<form class="addComment rightBottom" action="" method="post">
+						<input type="text" placeholder="댓글을 입력하세요." id="addComment"/>
+						<button class="custom-btn btn_addComment" id="btn_addComment" >게시</button>
+					</form>
+				</div>
+		      </div>
+		    </div>
+		  </div>
+
+	  <script>
+		  
+		  // 모달 그리드를 표시할 카드 선택
+		  const card = document.querySelector('.card');
+		
+		  // 모달 그리드와 오버레이 선택
+		  const modalOverlay = document.querySelector('.modal-overlay');
+		
+		  // 카드를 클릭하면 모달 그리드 표시
+		  card.addEventListener('click', () => {
+		    modalOverlay.style.display = 'block';
+		  });
+		
+		  // 오버레이 클릭 시 모달 그리드 닫기
+		  modalOverlay.addEventListener('click', (event) => {
+		    if (event.target === modalOverlay) {
+		      modalOverlay.style.display = 'none';
+		      $(".modal-backdrop").remove(); 
+		    }
+		  });
+		  // 모달 닫기 버튼
+		  function closeModal() {
+			  const modalOverlay = document.querySelector('.modal-overlay');
+			  modalOverlay.style.display = 'none';
+			  $(".modal-backdrop").remove();
+			}
+	</script>
+		
+		<!--페이지네이션-->
+		<div class="grid text-center" style="--bs-columns: 4">
+			<nav aria-label="Page navigation example">
+			  <ul class="pagination justify-content-center">
+			    <li class="page-item">
+			      <a class="page-link" href="#" aria-label="Previous">
+			        <span aria-hidden="true">&laquo;</span>
+			      </a>
+			    </li>
+			    <li class="page-item"><a class="page-link" href="#">1</a></li>
+			    <li class="page-item"><a class="page-link" href="#">2</a></li>
+			    <li class="page-item"><a class="page-link" href="#">3</a></li>
+			    <li class="page-item">
+			      <a class="page-link" href="#" aria-label="Next">
+			        <span aria-hidden="true">&raquo;</span>
+			      </a>
+			    </li>
+			  </ul>
+			</nav>
+		</div>
+		
+		
+
+		<!--footer-->
+		<div th:include="/main/footer.html"></div>
+		
+	</div>
+			
+		
+
+</body>
+</html>

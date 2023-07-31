@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+/*타이틀 구역*/
+.title{
+	border: 1px solid grey;
+	margin-left: 2%;
+	margin-bottom: 1.6rem;
+	padding: 1.6rem;
+}
+.mainTitle{
+	color: #58b483;
+}
