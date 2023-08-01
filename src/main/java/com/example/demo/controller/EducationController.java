@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.demo.dao.EducationDAO_JPA;
-import com.example.demo.dao.EducationDAO_MB;
 import com.example.demo.service.EducationService;
 import com.example.demo.vo.EducationVO;
 

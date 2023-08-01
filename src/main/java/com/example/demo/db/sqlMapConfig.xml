@@ -4,28 +4,53 @@
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-<properties resource="com/example/demo/db/db.properties"></properties>
-<typeAliases>
-	<typeAlias type="com.example.demo.entity.Education" alias="educationVO"/>
-	<typeAlias type="com.example.demo.entity.Lecture" alias="lectureVO"/>
-	<typeAlias type="com.example.demo.entity.Opinion" alias="opinionVO"/>
-	<typeAlias type="com.example.demo.entity.TraningRequest" alias="traningRequestVO"/>
-</typeAliases>
-  <environments default="development">
-    <environment id="development">
-      <transactionManager type="JDBC"/>
-      <dataSource type="POOLED">
-        <property name="driver" value="${driver}"/>
-        <property name="url" value="${url}"/>
-        <property name="username" value="${username}"/>
-        <property name="password" value="${password}"/>
-      </dataSource>
-    </environment>
-  </environments>
-  <mappers>
-    <mapper resource="com/example/demo/db/educationMapper.xml"/>
-    <mapper resource="com/example/demo/db/lectureMapper.xml"/>
-    <mapper resource="com/example/demo/db/opinionMapper.xml"/>
-    <mapper resource="com/example/demo/db/traningRequestMapper.xml"/>
-  </mappers>
+	<properties resource="com/example/demo/db/db.properties"></properties>
+	<typeAliases>
+		<!-- 전수진 -->
+		<!-- 우종호 -->
+		<!-- 권서현 -->
+		<!-- 박지영 -->
+		<typeAlias type="com.example.demo.vo.GoodsVO"
+			alias="goodsVO" />
+		<typeAlias type="com.example.demo.vo.GcategoryVO"
+			alias="categoryVO" />
+		<typeAlias type="com.example.demo.vo.OpinionVO"
+			alias="opinionVO" />
+		<typeAlias type="com.example.demo.vo.CartVO" alias="cartVO" />
+		<!-- 류예인 -->
+		<typeAlias type="com.example.demo.entity.Education"
+			alias="educationVO" />
+		<typeAlias type="com.example.demo.entity.Lecture"
+			alias="lectureVO" />
+		<typeAlias type="com.example.demo.entity.Opinion"
+			alias="opinionVO" />
+		<typeAlias type="com.example.demo.entity.TraningRequest"
+			alias="traningRequestVO" />
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<!-- 전수진 -->
+		<!-- 우종호 -->
+		<!-- 권서현 -->
+		<!-- 박지영 -->
+		<mapper resource="com/example/demo/db/goodsMapper.xml" />
+		<mapper resource="com/example/demo/db/GcategoryMapper.xml" />
+		<mapper resource="com/example/demo/db/opinionMapper.xml" />
+		<mapper resource="com/example/demo/db/cartMapper.xml" />
+		<!-- 류예인 -->
+		<mapper resource="com/example/demo/db/educationMapper.xml" />
+		<mapper resource="com/example/demo/db/lectureMapper.xml" />
+		<mapper resource="com/example/demo/db/opinionMapper.xml" />
+		<mapper resource="com/example/demo/db/traningRequestMapper.xml" />
+	</mappers>
 </configuration>

@@ -8,7 +8,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "g_category")
-public class G_category {
+public class GoodsCategoryVO {
 
 	@Id
 	private int categoryNo;

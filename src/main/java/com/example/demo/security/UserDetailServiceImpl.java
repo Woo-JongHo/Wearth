@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.dao.UserJpaRepository;
+import com.example.demo.repository.UserJpaRepository;
 import com.example.demo.vo.UsersVO;
 
 import lombok.Setter;
@@ -19,11 +19,11 @@ import lombok.Setter;
 public class UserDetailServiceImpl implements UserDetailsService  {
 	
 	@Autowired
-	private UserJpaRepository dao;
+	private UserJpaRepository ur;
 
 	@Override
 	public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
-	    Optional<UsersVO> userOptional = dao.findById(id);
+	    Optional<UsersVO> userOptional = ur.findById(id);
 	    UsersVO u = userOptional.orElse(null);
 	    if (u == null) {
 	        throw new UsernameNotFoundException(id);
