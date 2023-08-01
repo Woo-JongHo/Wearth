@@ -32,7 +32,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import com.example.demo.dao.UserJpaRepository;
+import com.example.demo.repository.UserJpaRepository;
 import com.example.demo.service.UserInfoService;
 import com.example.demo.vo.UsersVO;
 
@@ -54,13 +54,19 @@ public class SecurityConfig {
 	private UserDetailsService userDetailsService;
 
 	@Bean
-	public WebSecurityCustomizer webSecurityCustomizer() {
-		return web -> web.ignoring().requestMatchers("/css/**", "/js/**", "/php/**", "/images/**");
+	public BCryptPasswordEncoder encoder() {
+		return new BCryptPasswordEncoder();
 	}
 
 	@Bean
-	public BCryptPasswordEncoder encoder() {
-		return new BCryptPasswordEncoder();
+	public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
+			throws Exception {
+		return authenticationConfiguration.getAuthenticationManager();
+	}
+
+	@Bean
+	public WebSecurityCustomizer webSecurityCustomizer() {
+		return web -> web.ignoring().requestMatchers("/css/**", "/js/**", "/php/**", "/images/**");
 	}
 
 	@Bean
@@ -81,16 +87,7 @@ public class SecurityConfig {
 		return http.getOrBuild();
 	}
 
-	@Bean
-	public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
-			throws Exception {
-		return authenticationConfiguration.getAuthenticationManager();
-	}
 
-	@Bean
-	public AuthenticationProvider authenticationProvider() {
-		return new KakaoAuthenticationProvider();
-	}
 
 	private AuthenticationSuccessHandler successHandler = new AuthenticationSuccessHandler() {
 
@@ -100,6 +97,7 @@ public class SecurityConfig {
 			String id = authentication.getName();
 			UsersVO u = us.findById(id).get();
 			u.setPwd(null);
+			System.out.println(id+" 로그인 진행중 : "+u);
 			HttpSession session = request.getSession();
 			session.setAttribute("u", u);
 			response.sendRedirect("/");
@@ -112,31 +110,30 @@ public class SecurityConfig {
 		public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
 				AuthenticationException exception) throws IOException, ServletException {
 			String id = request.getParameter("username");
-			String msg = getError(exception, id);
-			request.setAttribute("msg", msg);
-			System.out.println("msg : " + msg);
-			response.sendRedirect("/userinfo/login");
+			String error = getError(exception, id);
+			response.sendRedirect("/userinfo/login?error=true&exception"+error);
 
 		}
 	};
 
 	private String getError(AuthenticationException exception, String id) {
-		String msg;
+		String error;
 
 		if (exception instanceof BadCredentialsException) {
-			msg = "잘못된 비밀번호입니다.";
+			error = "잘못된 비밀번호입니다.";
 
 		} else if (exception instanceof DisabledException) {
-			msg = "계정이 비활성화되었습니다.";
+			error = "계정이 비활성화되었습니다.";
 		} else if (exception instanceof LockedException) {
-			msg = "계정이 잠겼습니다. 잠시 후 다시 시도해주세요.";
+			error = "계정이 잠겼습니다. 잠시 후 다시 시도해주세요.";
 		} else if (exception instanceof UsernameNotFoundException) {
-			msg = "존재하지 않는 아이디입니다.";
+			error = "존재하지 않는 아이디입니다.";
 		} else {
-			msg = "로그인에 실패했습니다. 다시 시도해주세요.";
+			error = "로그인에 실패했습니다. 다시 시도해주세요.";
 		}
 
-		return msg;
+		return error;
 
 	}
+	
 }

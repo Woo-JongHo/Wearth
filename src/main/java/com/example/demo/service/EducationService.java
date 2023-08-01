@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.dao.EducationDAO_JPA;
-import com.example.demo.dao.EducationDAO_MB;
+import com.example.demo.repository.EducationJpaRepository;
+import com.example.demo.repository.EducationMyBatisRepository;
 import com.example.demo.vo.EducationVO;
 
 import lombok.Setter;
@@ -17,10 +17,10 @@ import lombok.Setter;
 public class EducationService {
 
 	@Autowired
-	private EducationDAO_JPA dao_JPA;
+	private EducationJpaRepository dao_JPA;
 	
 	@Autowired
-	private EducationDAO_MB dao_MB;
+	private EducationMyBatisRepository dao_MB;
 
 	//MB (조회)
 	public List<EducationVO> findAllEducation(HashMap<String, Object> map){

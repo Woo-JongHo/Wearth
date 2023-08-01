@@ -14,7 +14,7 @@ import org.apache.catalina.mapper.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.db.UserInfoRepository;
+import com.example.demo.repository.UserJpaRepository;
 import com.example.demo.vo.UsersVO;
 
 import lombok.Setter;
@@ -24,7 +24,7 @@ import lombok.Setter;
 public class UserInfoServiceImpl implements UserInfoService {
 
 	@Autowired
-	private UserInfoRepository ur;
+	private UserJpaRepository ur;
 	
 	@Override
 	public void join(UsersVO u) {
