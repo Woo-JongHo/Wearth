@@ -19,6 +19,8 @@ public class EducationMyBatisRepository {
 	public List<EducationVO> findAllEducation(HashMap<String, Object> map){
 		totalRecord = SchoolDBManager.getTotalRecordEducation();
 		totalPage = (int)Math.ceil(totalRecord / (double)pageSize);
+		System.out.println("교육RepoMB(findAll) 전체레코드 : "+ totalRecord);
+		System.out.println("교육RepoMB(findAll) 전체페이지 : "+ totalPage);
 		return SchoolDBManager.findAllEducation(map);
 	}
 	

@@ -52,96 +52,25 @@
 		</nav>
 				
 		<!--교육목록  -->
-		<div begin="1" end="12" >
-			
-			<!-- 첫 번째 카드 -->
-			<div class="card">
-			  <img class="card-img-top" src="/images/education/edu21.jpg" alt="Card image" style="width: 100%">
-			  <div class="card-body">
-			    <h5 class="card-title">탄소중립을 위한 방법</h5>
-			    <p class="card-text">탄소중립을 위한 방법을 알고 싶다면?</p>
-			    <div class="row">
-			      <div class="col"><a href="#" class="btn custom-btn btn-sm">모집중</a></div>
-			      <div class="col"><a href="#" onclick="changeImage('1')" style="margin-left: 90px;"><img id="1" src="/images/education/whiteHeart.jpg" width="28px"/></a></div>
-			    </div>
-			  </div>
-			</div>
-			
-			<!-- 두 번째 카드 -->
-			<div class="card">
-			  <a href="/school/education/detail"><img class="card-img-top" src="/images/education/edu20.jpg" alt="Card image" style="width: 100%"></a>
-			  <div class="card-body">
-			    <h5 class="card-title">순환하는 텃밭가꾸기</h5>
-			    <p class="card-text">흙을 살리는 방법으로 텃밭을 만들어갑니다.</p>
-			    <div class="row">
-			      <div class="col"><a href="/school/education/detail" class="btn custom-btn btn-sm">모집중</a></div>
-			      <div class="col"><a href="#" onclick="changeImage('2')" style="margin-left: 90px;"><img id="2" src="/images/education/whiteHeart.jpg" width="28px"/></a></div>
-			    </div>
-			  </div>
-			</div>
-			
-			
-			<div class="card">
-				<img class="card-img-top" src="/images/education/edu19.jpg" alt="Card image"
-					style="width: 100%">
-				<div class="card-body">
-					<h5 class="card-title">탄소중립을 위한 방법</h5>
-					<p class="card-text">탄소중립을 위한 방법을 알고 싶다면?</p>
-					<div class="row">
-				      <div class="col"><a href="/school/education/detail" class="btn custom-btn btn-sm">모집중</a></div>
-				      <div class="col"><a href="#" onclick="changeImage('3')" style="margin-left: 90px;"><img id="3" src="/images/education/whiteHeart.jpg" width="28px"/></a></div>
-				    </div>
-				</div>
-			</div>
-			<div class="card">
-				<img class="card-img-top" src="/images/education/edu18.jpg" alt="Card image"
-					style="width: 100%">
-				<div class="card-body">
-					<h5 class="card-title">탄소중립을 위한 방법</h5>
-					<p class="card-text">탄소중립을 위한 방법을 알고 싶다면?</p>
-					<div class="row">
-				      <div class="col"><a href="/school/education/detail" class="btn custom-btn btn-sm">모집중</a></div>
-				      <div class="col"><a href="#" onclick="changeImage('4')" style="margin-left: 90px;"><img id="4" src="/images/education/whiteHeart.jpg" width="28px"/></a></div>
-				    </div>
-				</div>
-			</div>
-			<div class="card">
-				<img class="card-img-top" src="/images/education/edu12.jpg" alt="Card image"
-					style="width: 100%">
-				<div class="card-body">
-					<h5 class="card-title">탄소중립을 위한 방법</h5>
-					<p class="card-text">탄소중립을 위한 방법을 알고 싶다면?</p>
-					<a href="#" class="btn custom-btn btn-sm">모집중</a>
-				</div>
-			</div>
-			<div class="card">
-				<img class="card-img-top" src="/images/education/edu16.jpg" alt="Card image"
-					style="width: 100%">
-				<div class="card-body">
-					<h5 class="card-title">탄소중립을 위한 방법</h5>
-					<p class="card-text">탄소중립을 위한 방법을 알고 싶다면?</p>
-					<a href="#" class="btn custom-btn btn-sm">모집중</a>
-				</div>
-			</div>
-			<div class="card">
-				<img class="card-img-top" src="/images/education/edu15.jpg" alt="Card image"
-					style="width: 100%">
-				<div class="card-body">
-					<h5 class="card-title">탄소중립을 위한 방법</h5>
-					<p class="card-text">탄소중립을 위한 방법을 알고 싶다면?</p>
-					<a href="#" class="btn custom-btn btn-sm">모집중</a>
-				</div>
-			</div>
-			<div class="card">
-				<img class="card-img-top" src="/images/education/edu14.jpg" alt="Card image"
-					style="width: 100%">
-				<div class="card-body">
-					<h5 class="card-title">탄소중립을 위한 방법</h5>
-					<p class="card-text">탄소중립을 위한 방법을 알고 싶다면?</p>
-					<a href="#" class="btn custom-btn btn-sm">모집중</a>
-				</div>
-			</div>
-		</div>
+		<div th:each="e:${list}">
+	    <div class="card">
+	         <a th:href="@{'/school/education/detail/'+${e.eduNO}}"><img class="card-img-top" th:src="@{'/images/education/'+${e.eduFile}}" alt="Card image" style="width: 100%" /></a>
+	        <div class="card-body">
+	            <h5 class="card-title" th:text="${e.eduName}"></h5>
+	            <p class="card-text" th:text="${e.eduContent}"></p>
+	            <div class="row">
+	                <div class="col">
+	                    <a th:href="@{'/school/education/detail/'+${e.eduNO}}" class="btn custom-btn btn-sm" th:text="${e.eduStatus}"></a>
+	                </div>
+	                <div class="col">
+	                    <a th:onclick="'changeImage(' + ${e.eduNO} + ')'"  style="margin-left: 55px;">
+	                        <img th:id="${e.eduNO}" src="/images/education/whiteHeart.jpg" style="width:28px" />
+	                    </a>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 		
 		<div class="grid text-center" style="--bs-columns: 4;">
 			<nav aria-label="Page navigation example">
@@ -151,9 +80,7 @@
 			        <span aria-hidden="true">&laquo;</span>
 			      </a>
 			    </li>
-			    <li class="page-item"><a class="page-link" href="#">1</a></li>
-			    <li class="page-item"><a class="page-link" href="#">2</a></li>
-			    <li class="page-item"><a class="page-link" href="#">3</a></li>
+			    <li:block class="page-item"  th:each="i:${#numbers.sequence(1,totalPage)}"><a class="page-link" th:href="@{'/school/education/list/'+${i}}" th:text="${i}"></a></li:block>
 			    <li class="page-item">
 			      <a class="page-link" href="#" aria-label="Next">
 			        <span aria-hidden="true">&raquo;</span>

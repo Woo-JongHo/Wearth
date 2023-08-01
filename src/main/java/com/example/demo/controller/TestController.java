@@ -9,15 +9,6 @@ public class TestController {
 	public void index() {
 	}
 	
-	@GetMapping("school/education/list")
-	public void list() {
-	}
-	@GetMapping("school/education/insert")
-	public void eduInsert() {}
-	@GetMapping("school/education/test")
-	public void test() {}
-	
-	
 	@GetMapping("school/lecture/list")
 	public void list2() {
 	}
