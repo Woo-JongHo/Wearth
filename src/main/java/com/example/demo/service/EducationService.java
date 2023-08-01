@@ -36,9 +36,6 @@ public class EducationService {
 	}
 	
 	//JPA (추가, 수정, 삭제)
-	public void findAll(){
-		dao_JPA.findAll();
-	}
 	
 	public int getNextNoEducation() {
 		return (int)dao_JPA.getNextNoEducation();

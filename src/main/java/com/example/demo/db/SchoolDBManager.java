@@ -1,21 +1,13 @@
 package com.example.demo.db;
 
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
-
-import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.example.demo.vo.EducationVO;
 import com.example.demo.vo.LectureVO;
 import com.example.demo.vo.OpinionVO;
 import com.example.demo.vo.TrainingRequestVO;
 
-import jakarta.servlet.http.HttpServletRequest;
 
 public class SchoolDBManager extends DBManager{
 
@@ -69,6 +61,14 @@ public class SchoolDBManager extends DBManager{
 		return list;
 	}	
 	
+	public static int getTotalRecordEducation()	{
+		int n = 0;
+		SqlSession session = sqlSessionFactory.openSession();
+		n = session.selectOne("education.getTotalRecordEducation");
+		session.close();
+		return n;
+	}
+	
 	public static EducationVO findByNoEducation (int eduno) {
 		EducationVO e = null;
 		SqlSession session = sqlSessionFactory.openSession();
@@ -77,13 +77,6 @@ public class SchoolDBManager extends DBManager{
 		return e;
 	}
 	
-	public static int getTotalRecordEducation()	{
-		int n = 0;
-		SqlSession session = sqlSessionFactory.openSession();
-		n = session.selectOne("education.getTotalRecordEducation");
-		session.close();
-		return n;
-	}
 	
 	
 	// TrainingRequest

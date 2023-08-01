@@ -182,10 +182,16 @@
 			    <br />
 			    
 			    <table class="table table-hover">
+					<colgroup>
+				        <col style="width: 10%;">
+				        <col style="width: 50%;">
+				        <col style="width: 15%;">
+				        <col style="width: 15%;">
+				    </colgroup>
 			        <thead>
 			            <tr>
 			                <th>번호</th>
-			                <th width="50%">제목</th>
+			                <th>제목</th>
 			                <th>작성자</th>
 			                <th>작성일</th>
 			            </tr>
@@ -221,7 +227,7 @@
 			                <td colspan="4" class="post-details">
 			                    <label for="password2">비밀번호를 입력하세요:</label>
 			                    <input type="password" id="password2" required>
-			                    <button onclick="checkPassword(2)">확인</button>
+			                    <button  class="btn custom-btn" onclick="checkPassword(2)">확인</button>
 			                    <br><br>
 			                    <div id="postContent2" style="display: none;">
 			                        안녕하세요 환불관련 해서 문의드려요~~ 이러쿵 저러쿵 롤로로롤롤ㄹ롤로라랄랄랄릴ㄹ라랄랄
@@ -241,7 +247,7 @@
 			                <td colspan="4" class="post-details">
 			                    <label for="password3">비밀번호를 입력하세요:</label>
 			                    <input type="password" id="password3" required>
-			                    <button onclick="checkPassword(3)">확인</button>
+			                    <button  class="btn custom-btn" onclick="checkPassword(3)">확인</button>
 			                    <br><br>
 			                    <div id="postContent3" style="display: none;">
 			                        안녕하세요 환불관련 해서 문의드려요~~ 이러쿵 저러쿵 롤로로롤롤ㄹ롤로라랄랄랄릴ㄹ라랄랄
@@ -264,9 +270,11 @@
 			<!-- 제목, 가격 --> 
 	        <div class="p-4 mb-3 bg-white rounded" style="border: 1px solid lightgrey;">
 	      		<h4 class="fst-basic">[모집중] 순환하는 텃밭가꾸기 
-				  <a href="#" onclick="changeImage('4')" style="margin-left: 210px;"><img id="4" src="/images/education/whiteHeart.jpg" width="28px"/></a>
 				</h4>
-	          <p class="mb-0" style="color: #43a06f; font-weight: bold;"> 가격문의 </p>
+	           <div class="row">
+	          <div class="col"><p class="mb-0" style="color: #43a06f; font-weight: bold;"> 가격문의 </p></div>
+	           <div class="col"><a href="#" onclick="changeImage('2')" style="margin-left: 100px;"><img id="2" src="/images/education/whiteHeart.jpg" style="width:28px;" /></a></div>
+	        </div>
 	        </div>
 	        
 	        <!-- 요약 --> 
@@ -286,7 +294,7 @@
 	        
 	        <!-- 신청버튼 --> 
 			<div class="p-4">
-	       		<a class="btn custom-btn" style="width: 450px; " href="/school/education/insert">신청하기</a>
+	       		<a class="btn custom-btn" style="width: 320px; " href="/school/education/insert">신청하기</a>
 			</div>
 			
 	      </div>
