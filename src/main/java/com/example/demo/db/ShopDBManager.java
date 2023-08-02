@@ -1,5 +1,6 @@
 package com.example.demo.db;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -10,16 +11,16 @@ import com.example.demo.vo.GoodsVO;
 public class ShopDBManager extends DBManager{
 
 	//goods
-		public static List<GoodsVO> findGoods(){
+		public static List<GoodsVO> findGoods(HashMap<Object, Object> map){
 			SqlSession session = sqlSessionFactory.openSession();
-			List<GoodsVO> list = session.selectList("goods.findGoods");
+			List<GoodsVO> list = session.selectList("goods.findGoods",map);
 			session.close();
 			return list;
 		}
 		
-		public static List<GoodsVO> findByCategoryNo(int categoryNo){
+		public static List<GoodsVO> findByCategoryNo(HashMap<Object, Object> map){
 			SqlSession session = sqlSessionFactory.openSession();
-			List<GoodsVO> list = session.selectList("goods.findByCategoryNo", categoryNo);
+			List<GoodsVO> list = session.selectList("goods.findByCategoryNo", map);
 			session.close();
 			return list;
 		}

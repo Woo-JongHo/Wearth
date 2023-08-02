@@ -36,11 +36,11 @@
 		<!-- 전수진 -->
 		<!-- 우종호 -->
 		<!-- 권서현 -->
-		<!-- 박지영 
+		<!-- 박지영 -->
 		<mapper resource="com/example/demo/db/goodsMapper.xml" />
 		<mapper resource="com/example/demo/db/GoodsCategoryMapper.xml" />
 		<mapper resource="com/example/demo/db/cartMapper.xml" />
-		-->
+		
 		<!-- 류예인 -->
 		<mapper resource="com/example/demo/db/educationMapper.xml" />
 		<mapper resource="com/example/demo/db/lectureMapper.xml" />

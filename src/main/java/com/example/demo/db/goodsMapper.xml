@@ -4,18 +4,32 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="goods">
 
- <!-- 전체 상품목록 조회 -->
+	<!-- 전체 상품목록 조회 -->
 	<select id="findGoods" resultType="goodsVO">
 		select * from goods
+		<if test="value==null">g left join (select goodsNo,count(goodsNo) as liked from liked where goodsNo is not null group by goodsNo) l on l.goodsNO=g.goodsNo order by l.liked desc nulls last</if>
+		<if test="value != null">
+			<if test="value.equals('liked')">g left join (select goodsNo,count(goodsNo) as liked from liked where goodsNo is not null group by goodsNo) l on l.goodsNO=g.goodsNo order by l.liked desc nulls last</if>
+			<if test="value.equals('goodsprice')"> order by goodsPrice</if>
+			<if test="value.equals('highPrice')"> order by goodsPrice desc</if>
+			<if test="value.equals('goodsUpdate')"> order by goodsUpdate</if>
+		</if>
 	</select>
 
-<!-- 카테고리별 상품목록 조회 -->
-  <select id="findByCategoryNo" resultType="goodsVO">
-    select * from goods where categoryNo=#{categoryNo}
-  </select>
+	<!-- 카테고리별 상품목록 조회 및 키워드별(value) 정렬 조회 -->
+	<select id="findByCategoryNo" resultType="goodsVO">
+		select * from goods 
+		<if test="value==null">g left join (select goodsNo,count(goodsNo) as liked from liked where goodsNo is not null group by goodsNo) l on l.goodsNO=g.goodsNo where categoryNo=#{categoryNo} order by l.liked desc nulls last</if>
+		<if test="value != null">
+			<if test ="value.equals('liked')">g left join (select goodsNo,count(goodsNo) as liked from liked where goodsNo is not null group by goodsNo) l on l.goodsNO=g.goodsNo where categoryNo=#{categoryNo} order by l.liked desc nulls last</if>
+			<if test="value.equals('goodsprice')"> where categoryNo=#{categoryNo} order by goodsPrice</if>
+			<if test="value.equals('highPrice')"> where categoryNo=#{categoryNo} order by goodsPrice desc</if>
+			<if test="value.equals('goodsUpdate')"> where categoryNo=#{categoryNo} order by goodsUpdate</if>
+		</if>
+	</select>
 
- <!-- 상품 상세 조회 -->
- 	<select id="detailGoods" resultType="goodsVO">
- 		select * from goods where goodsNo=#{goodsNo}
- 	</select>
+	<!-- 상품 상세 조회 -->
+	<select id="detailGoods" resultType="goodsVO">
+		select * from goods where goodsNo=#{goodsNo}
+	</select>
 </mapper>

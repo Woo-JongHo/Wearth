@@ -4,7 +4,8 @@
 <head>
 	<title>shop</title>
 	<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-	<script>
+	<script th:inline="javascript">
+		//하트버튼 클릭 시 색 변경
 		$(document).ready(function () {
 			let isLiked = false;
 
@@ -15,7 +16,28 @@
 				// .liked 클래스를 토글하여 좋아요 버튼 스타일 변경
 				$(this).toggleClass("liked", isLiked);
 			});
+			
+			//select박스 클릭 시 값 받아오고 링크로 전달
+			$(document).ready(function(){
+				$("#sort").change(function(){
+					var value=$("#sort").val();
+					var categoryNo= /*[[${categoryNo}]]*/ 
+					location.href="/shop/shopMain/"+categoryNo+"/"+value	
+					$("#sort").val(value);
+				})
+			});
+			$(document).ready(function(){
+					var sort= /*[[${value}]]*/
+					$("#sort").val("liked");
+					if(sort !=null){
+						$("#sort").val(sort);
+					}
+
+			})
+			
+			
 		});
+
 	</script>
 
 
@@ -34,6 +56,8 @@
 
 <body>
 		<div th:include="/main/header.html"></div>
+		
+	
 	<div class="container">
 	
 
@@ -41,13 +65,13 @@
 		<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="/css/shop/images/banner/banner3.png" class="d-block w-100">
+					<img src="/images/shop/banner/banner3.png" class="d-block w-100">
 				</div>
 				<div class="carousel-item">
-					<img src="/css/shop/images/banner/banner2.png" class="d-block w-100" alt="...">
+					<img src="/images/shop/banner/banner2.png" class="d-block w-100" alt="...">
 				</div>
 				<div class="carousel-item">
-					<img src="/css/shop/images/banner/banner1.png" class="d-block w-100" alt="...">
+					<img src="/images/shop/banner/banner1.png" class="d-block w-100" alt="...">
 				</div>
 			</div>
 			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -64,25 +88,24 @@
 
 		<!-- End carousel Code -->
 
-		<sec id="new-arrivals" class="new-arrivals" style="padding-top: 40px; padding-left: 10px; ">
+		<sec id="new-arrivals" onchange="changeFn()" class="new-arrivals" style="padding-top: 40px; padding-left: 10px; ">
 			<div class="container">
 				<!--select start-->
 				<div dir="rtl">
-					<select class="form-select" aria-label="Default select example"
+					<select id="sort" name="sort" class="form-select" aria-label="Default select example"
 						style="width: 135px; height: 40px; text-align: center; margin-bottom: 30px;">
-						<option selected="sortBy">인기순</option>
-						<option value="goodsUpdate">등록일순</option>
-						<option value="price">가격낮은순</option>
-						<option value="price desc">가격높은순</option>
+						<option value="liked">인기순</option>
+						<option value="goodsUpdate"}>등록일순</option>
+						<option value="goodsprice" }>가격낮은순</option>
+						<option value="highPrice" }>가격높은순</option>
 					</select>
 				</div>
 				<!--select end-->
 
 				<!--goodsList start  -->
 				<div class="grid text-center" style="--bs-columns: 4;">
-					
 					<div class="card" th:each="g:${list }">
-						<img class="card-img-top" th:src="@{/css/shop/images/}+${g.mainFname}" alt="Card image"
+						<img class="card-img-top" th:src="@{/images/shop/}+${g.mainFname}" alt="Card image"
 							style="width: 100%; height:200px;" >
 						<div class="card-content">
 							<a th:href="@{/shop/detail(goodsNo=${g.goodsNo})}"><div class="card-start" th:text="[+${g.goodsCompany}+]+${g.goodsName}"> </div></a>
