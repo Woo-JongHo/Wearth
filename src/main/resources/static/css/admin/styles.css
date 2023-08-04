@@ -1,0 +1,261 @@
+@charset "UTF-8";
+
+body {
+  width: 100rem;
+  margin: auto;
+  background: var(--phoenix-body-bg);
+  font-size: var(--phoenix-body-font-size);
+  font-weight: var(--phoenix-body-font-weight);
+  line-height: var(--phoenix-body-line-height);
+  font-family: 'Sunflower', sans-serif;
+  color: var(--phoenix-900);
+}
+
+a {
+  text-decoration: none;
+
+}
+main {
+  min-height: 100vh;
+  /* 뷰포트 높이의 100%로 설정 */
+  overflow-y: auto;
+  /* 수직 스크롤 허용 */
+  display: flex;
+}
+
+:root {
+  --phoenix-gray-soft: #0f111a;
+  --phoenix-gray-100: #222834;
+  --phoenix-gray-200: #31374a;
+  --phoenix-gray-300: #373e53;
+  --phoenix-gray-400: #3e465b;
+  --phoenix-gray-500: #525b75;
+  --phoenix-gray-600: #8a94ad;
+  --phoenix-gray-700: #8a94ad;
+  --phoenix-gray-800: #949db5;
+  --phoenix-gray-900: #9fa6bc;
+  --phoenix-gray-1000: #cbd0dd;
+  --phoenix-gray-1100: #e3e6ed;
+  --phoenix-gray-soft-rgb: 15, 17, 26;
+  --phoenix-gray-100-rgb: 34, 40, 52;
+  --phoenix-gray-200-rgb: 49, 55, 74;
+  --phoenix-gray-300-rgb: 55, 62, 83;
+  --phoenix-gray-400-rgb: 62, 70, 91;
+  --phoenix-gray-500-rgb: 82, 91, 117;
+  --phoenix-gray-600-rgb: 138, 148, 173;
+  --phoenix-gray-700-rgb: 138, 148, 173;
+  --phoenix-gray-800-rgb: 148, 157, 181;
+  --phoenix-gray-900-rgb: 159, 166, 188;
+  --phoenix-gray-1000-rgb: 203, 208, 221;
+  --phoenix-gray-1100-rgb: 227, 230, 237;
+  --phoenix-soft: #0f111a;
+  --phoenix-100: #222834;
+  --phoenix-200: #31374a;
+  --phoenix-300: #373e53;
+  --phoenix-400: #3e465b;
+  --phoenix-500: #525b75;
+  --phoenix-600: #8a94ad;
+  --phoenix-700: #8a94ad;
+  --phoenix-800: #949db5;
+  --phoenix-900: #9fa6bc;
+  --phoenix-1000: #cbd0dd;
+  --phoenix-1100: #e3e6ed;
+  --phoenix-primary: #85a9ff;
+  --phoenix-secondary: #31374a;
+  --phoenix-success: #90d67f;
+  --phoenix-info: #60c6ff;
+  --phoenix-warning: #ffcc85;
+  --phoenix-danger: #f48270;
+  --phoenix-light: rgba(49, 55, 74, 0.25);
+  --phoenix-dark: #eff2f6;
+  --phoenix-primary-soft: #f5f8ff;
+  --phoenix-primary-100: #1d2332;
+  --phoenix-primary-200: #adc5ff;
+  --phoenix-primary-300: #85a9ff;
+  --phoenix-primary-500: #3874ff;
+  --phoenix-primary-600: #003cc7;
+  --phoenix-warning-soft: #fff6e0;
+  --phoenix-warning-100: #272528;
+  --phoenix-warning-200: #ffe6ad;
+  --phoenix-warning-300: #ffcc85;
+  --phoenix-warning-500: #e5780b;
+  --phoenix-warning-600: #bc3803;
+  --phoenix-danger-300: #f48270;
+  --phoenix-danger-200: #fabcb3;
+  --phoenix-danger-100: #262026;
+  --phoenix-danger-500: #cc1b00;
+  --phoenix-danger-600: #b81800;
+  --phoenix-success-100: #1e2628;
+  --phoenix-success-200: #bee8b4;
+  --phoenix-success-300: #90d67f;
+  --phoenix-success-500: #25b003;
+  --phoenix-success-600: #1c6c09;
+  --phoenix-info-100: #1a2532;
+  --phoenix-info-200: #96d9ff;
+  --phoenix-info-300: #60c6ff;
+  --phoenix-info-500: #0097eb;
+  --phoenix-info-600: #005585;
+  --phoenix-white: #141824;
+  --phoenix-black: #eff2f6;
+  --phoenix-soft-rgb: 15, 17, 26;
+  --phoenix-100-rgb: 34, 40, 52;
+  --phoenix-200-rgb: 49, 55, 74;
+  --phoenix-300-rgb: 55, 62, 83;
+  --phoenix-400-rgb: 62, 70, 91;
+  --phoenix-500-rgb: 82, 91, 117;
+  --phoenix-600-rgb: 138, 148, 173;
+  --phoenix-700-rgb: 138, 148, 173;
+  --phoenix-800-rgb: 148, 157, 181;
+  --phoenix-900-rgb: 159, 166, 188;
+  --phoenix-1000-rgb: 203, 208, 221;
+  --phoenix-1100-rgb: 227, 230, 237;
+  --phoenix-primary-rgb: 133, 169, 255;
+  --phoenix-secondary-rgb: 49, 55, 74;
+  --phoenix-success-rgb: 144, 214, 127;
+  --phoenix-info-rgb: 96, 198, 255;
+  --phoenix-warning-rgb: 255, 204, 133;
+  --phoenix-danger-rgb: 244, 130, 112;
+  --phoenix-light-rgb: 49, 55, 74;
+  --phoenix-dark-rgb: 239, 242, 246;
+  --phoenix-primary-soft-rgb: 245, 248, 255;
+  --phoenix-primary-100-rgb: 29, 35, 50;
+  --phoenix-primary-200-rgb: 173, 197, 255;
+  --phoenix-primary-300-rgb: 133, 169, 255;
+  --phoenix-primary-500-rgb: 56, 116, 255;
+  --phoenix-primary-600-rgb: 0, 60, 199;
+  --phoenix-warning-soft-rgb: 255, 246, 224;
+  --phoenix-warning-100-rgb: 39, 37, 40;
+  --phoenix-warning-200-rgb: 255, 230, 173;
+  --phoenix-warning-300-rgb: 255, 204, 133;
+  --phoenix-warning-500-rgb: 229, 120, 11;
+  --phoenix-warning-600-rgb: 188, 56, 3;
+  --phoenix-danger-300-rgb: 244, 130, 112;
+  --phoenix-danger-200-rgb: 250, 188, 179;
+  --phoenix-danger-100-rgb: 38, 32, 38;
+  --phoenix-danger-500-rgb: 204, 27, 0;
+  --phoenix-danger-600-rgb: 184, 24, 0;
+  --phoenix-success-100-rgb: 30, 38, 40;
+  --phoenix-success-200-rgb: 190, 232, 180;
+  --phoenix-success-300-rgb: 144, 214, 127;
+  --phoenix-success-500-rgb: 37, 176, 3;
+  --phoenix-success-600-rgb: 28, 108, 9;
+  --phoenix-info-100-rgb: 26, 37, 50;
+  --phoenix-info-200-rgb: 150, 217, 255;
+  --phoenix-info-300-rgb: 96, 198, 255;
+  --phoenix-info-500-rgb: 0, 151, 235;
+  --phoenix-info-600-rgb: 0, 85, 133;
+  --phoenix-white-rgb: 20, 24, 36;
+  --phoenix-black-rgb: 239, 242, 246;
+  --phoenix-white: #141824;
+  --phoenix-black: #eff2f6;
+  --phoenix-white-rgb: 20, 24, 36;
+  --phoenix-black-rgb: 239, 242, 246;
+  --phoenix-body-color: #9fa6bc;
+  --phoenix-body-bg: #0f111a;
+  --phoenix-input-bg: #141824;
+  --phoenix-input-border-color: #373e53;
+  --phoenix-input-group-addon-bg: #31374a;
+  --phoenix-navbar-vertical-border-color: #31374a;
+  --phoenix-navbar-footer-border-color: #31374a;
+  --phoenix-navbar-top-bg-color: #141824;
+  --phoenix-link-color: #85a9ff;
+  --phoenix-link-hover-color: #3874ff;
+  --phoenix-avatar-status-border-color: #141824;
+  --phoenix-avatar-name-color: #85a9ff;
+  --phoenix-list-sort-icon: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNyIgaGVpZ2h0PSI5IiB2aWV3Qm94PSIwIDAgNyA5IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMS4xMjkzIDQuOTkwMjNDMC42OTEwMTYgNC45OTAyMyAwLjQ3MTg3NSA1LjUwODIgMC43OTA2MjUgNS44MDcwM0wzLjE2MTMzIDguMTc3NzNDMy4zNDA2MiA4LjM3Njk1IDMuNjM5NDUgOC4zNzY5NSAzLjgzODY3IDguMTc3NzNMNi4yMDkzNyA1LjgwNzAzQzYuNTA4MiA1LjUwODIgNi4yODkwNiA0Ljk5MDIzIDUuODcwNyA0Ljk5MDIzSDEuMTI5M1pNNi4yMDkzNyAyLjg5ODQ0TDMuODM4NjcgMC41Mjc3MzVDMy42Mzk0NSAwLjM0ODQzOCAzLjM0MDYyIDAuMzQ4NDM4IDMuMTYxMzMgMC41Mjc3MzVMMC43OTA2MjUgMi44OTg0NEMwLjQ3MTg3NSAzLjIxNzE5IDAuNjkxMDE2IDMuNzE1MjMgMS4xMjkzIDMuNzE1MjNINS44NzA3QzYuMjg5MDYgMy43MTUyMyA2LjUwODIgMy4yMTcxOSA2LjIwOTM3IDIuODk4NDRaIiBmaWxsPSIjM0U0NjVCIi8+Cjwvc3ZnPgo=);
+  --phoenix-tinymce-tox-tbtn-enabled-icon-color: var(--phoenix-gray-1000);
+  --phoenix-choices-item-bg: rgba(133, 169, 255, 0.25);
+  --phoenix-choices-item-color: var(--phoenix-gray-1000);
+  --phoenix-choices-item-has-no-choices-bg: #141824;
+  --phoenix-docs-language-bg: #222834;
+  --phoenix-form-select-indicator: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik03NS4zNDggMTI3LjE5MkM3Mi40MzgxIDEyNy4xOTIgNjkuODUxNCAxMjYuMjIyIDY3LjkxMTUgMTI0LjI4Mkw1LjgzMjE1IDYyLjIwMjNDMS42Mjg4NyA1OC4zMjIzIDEuNjI4ODcgNTEuNTMyNCA1LjgzMjE1IDQ3LjY1MjVDOS43MTIxMSA0My40NDkyIDE2LjUwMiA0My40NDkyIDIwLjM4MiA0Ny42NTI1TDc1LjM0OCAxMDIuMjk1TDEyOS45OTEgNDcuNjUyNUMxMzMuODcxIDQzLjQ0OTIgMTQwLjY2MSA0My40NDkyIDE0NC41NDEgNDcuNjUyNUMxNDguNzQ0IDUxLjUzMjQgMTQ4Ljc0NCA1OC4zMjIzIDE0NC41NDEgNjIuMjAyM0w4Mi40NjEzIDEyNC4yODJDODAuNTIxMyAxMjYuMjIyIDc3LjkzNDcgMTI3LjE5MiA3NS4zNDggMTI3LjE5MloiIGZpbGw9IiM5RkE2QkMiLz4KPC9zdmc+Cg==);
+  --phoenix-theme-wizard-nav-item-circle-bg: #222834;
+  --phoenix-logo-text: #eff2f6;
+  --phoenix-flatpickr-calendar-input-bg: var(--phoenix-input-bg);
+  --phoenix-flatpickr-calendar-bg: #141824;
+  --phoenix-flatpickr-current-month-color: #cbd0dd;
+  --phoenix-flatpickr-weekday-color: #cbd0dd;
+  --phoenix-flatpickr-calendar-day-hover-bg: #222834;
+  --phoenix-flatpickr-weekend-days-color: #e5780b;
+  --phoenix-flatpickr-today-color: #31374a;
+  --phoenix-flatpickr-calendar-day-selected-bg: rgba(56, 116, 255, 0.2);
+  --phoenix-calendar-bg: #141824;
+  --phoenix-calendar-border-color: #0f111a;
+  --phoenix-list-group-bg: #141824;
+  --phoenix-navbar-top-link-color: #9fa6bc;
+  --phoenix-navbar-top-menu-bg-color: #141824;
+  --phoenix-navbar-top-border-color: #31374a;
+  --phoenix-navbar-top-link-hover-color: #cbd0dd;
+  --phoenix-navbar-top-link-hover-bg: #222834;
+  --phoenix-navbar-top-dropdown-hover-bg: #222834;
+  --phoenix-navbar-top-dropdown-color: #8a94ad;
+  --phoenix-dual-nav-border-color: #31374a;
+  --phoenix-dual-nav-first-layer-bg: #0f111a;
+  --phoenix-navbar-vertical-bg-color: #141824;
+  --phoenix-navbar-vertical-label-color: #6e7891;
+  --phoenix-navbar-vertical-link-color: #9fa6bc;
+  --phoenix-navbar-vertical-link-hover-color: #eff2f6;
+  --phoenix-navbar-vertical-link-hover-bg: #31374a;
+  --phoenix-navbar-vertical-link-active-color: #fff;
+  --phoenix-navbar-vertical-link-disable-color: #8a94ad;
+  --phoenix-navbar-vertical-link-icon-color: #9fa6bc;
+  --phoenix-hamburger-menu-color: #525b75;
+  --phoenix-navbar-vertical-hr-color: #3e465b;
+  --phoenix-navbar-vertical-collapsed-menu-bg: #222834;
+  --phoenix-navbar-vertical-collapsed-menu-color: #9fa6bc;
+  --phoenix-theme-control-toggle-bg: rgba(56, 116, 255, 0.24);
+  --phoenix-theme-control-toggle-hover-bg: rgba(56, 116, 255, 0.7);
+  --phoenix-theme-control-toggle-color: #85a9ff;
+  --phoenix-theme-control-toggle-hover-color: #f5f8ff;
+  --bs-scrollbar-bg: rgba(49, 55, 74, 0.6);
+  --phoenix-kanban-bg: #0f111a;
+  --phoenix-kanban-column-bg: #141824;
+  --phoenix-ghost-bg: #0f111a;
+  --phoenix-drag-bg: #1c222c;
+  --phoenix-kanban-column-hover-bg: #1c222c;
+  --phoenix-leaflet-bar-bg: #373e53;
+  --phoenix-leaflet-popup-content-wrapper-bg: #141824;
+}
+
+.page-link:hover {
+  background-color: rgb(227, 244, 229) !important;
+  color: black
+}
+
+.page-link {
+  color: black !important;
+  border-radius: 60% !important;
+  border: none !important;
+}
+
+.Page {
+  border-radius: 60% !important;
+}
+
+.pagination {
+  border-radius: 60% !important;
+}
+
+
+.custom-btn {
+  background-color: #58b483;
+  color: white;
+  text-align: center;
+}
+
+.custom-btn:hover {
+  background: #43a06f;
+  color: white;
+}
+
+.custom-reverse-btn {
+  color: #58b483;
+  background-color: white;
+  text-align: center;
+  border-color: #43a06f;
+}
+
+.custom-reverse-btn:hover {
+  background: #43a06f;
+  color: white;
+}

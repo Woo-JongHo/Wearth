@@ -1,0 +1,111 @@
+/* container 설정 */
+
+/* Header는 div 요소 3가지 들어가 있음
+    1. WEARTH LOGO
+    2. NOTICE 
+    3. PROFILE 
+*/
+.container-header{
+    background-color: var(--phoenix-navbar-top-bg-color);
+    width: auto;
+    max-width: 100rem; /* max 값 바꿔보기 */ 
+    height : 3.5rem;
+    flex-shrink: 0;
+    box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start;
+    margin: auto; /* 중앙 정렬을 위해 추가 */
+    border-bottom: 1px solid var(--phoenix-navbar-top-border-color)
+    
+}
+
+/* LOGO 관련 CSS */
+.Wearth-logo{
+    display: flex;
+    width: 14.375rem;
+    height: 5.3125rem;
+    padding: 0.625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    flex-shrink: 0;
+
+    
+}   
+
+.Wearth-logo img{
+    flex: 1 0 0;
+    align-self: stretch; 
+    background-color: transparent !important; 
+}   
+
+
+
+
+/* bootstrap 기본 btn 속성 변경 및 notice*/
+.btn.btn-secondary{
+    display: flex;
+    width: .5625rem;
+    flex-direction: row; 
+    background-color: transparent !important; 
+    border : none;
+}
+
+/* 알람 이미지 크기 조절 */
+.btn.btn-secondary-notice img {
+    width: 50%; 
+    height: auto;
+}
+
+
+.btn.btn-secondary-notice{
+    margin-left: 60rem; 
+
+} 
+
+
+
+/*bootstrap dropdwon 기본속성 및 profile*/
+.btn.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 버튼 내부의 내용을 가운데로 정렬 */
+    gap: 0.5rem; /* 이미지와 텍스트 사이의 간격 */
+    width: 10rem;
+}
+
+
+.btn.dropdown-toggle::after {
+    display: none;
+}
+
+
+/*--------------------------------- 프로필 관련 */
+.Profile-banner{
+    display: flex;
+    width: 15rem;
+    align-items: center; 
+    justify-content: center;
+
+
+}
+
+
+.Profile-banner img {
+    width: 20%;
+    height: auto;
+}
+
+.Profile-banner span {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    color: #9FA6BC;
+    font-family: Roboto;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem; /* 111.111% */
+}

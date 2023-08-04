@@ -1,0 +1,72 @@
+.container-dashboard {
+        margin-left: 2rem;
+        font-size: 1.5rem;
+}
+
+.row-dashboard {
+        display: block;
+        color: #E3E6ED;
+}
+
+.col-dashboard {
+        padding-top: 2rem;
+        
+}
+
+.col-total {
+        display: flex;
+        font-size: 1rem;
+        padding-left: 2rem;
+        margin: auto;
+
+}
+
+.col-md-total {
+        border: 2px solid var(--phoenix-navbar-top-border-color);
+        background-color: var(--phoenix-navbar-top-bg-color);
+        margin-left: 1rem;
+        display: block; /* 추가: flex 컨테이너로 설정 */
+        border-radius: 8px; /* 테두리를 약간 둥글게 설정합니다. */
+}
+
+.col-md-total-board {
+        display: flex;
+}
+
+.col-md-total-title{
+        align-items: center;
+        justify-content: center; /* 가운데 정렬 설정 */
+
+}
+.col-md-total-list{
+        text-align: center; /* 텍스트를 가운데 정렬합니다. */
+        margin-left : 3rem;
+        margin-right: 3rem;
+}
+
+
+.col-total-circle {
+        width: 6.5rem;
+        height: 6.5rem;
+        border-radius: 50%;
+        border: 0.1rem solid #ADC5FF;
+        /* 선택한 테두리 색상과 두께 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ADC5FF;
+        margin-top : 1rem;
+        margin-bottom : 1rem;
+        /* 테두리와 동일한 색상으로 텍스트 색상 지정 */
+        font-size: 24px;
+        font-weight: bold;
+        position: relative;
+        
+}
+
+.col-total-static {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+}
