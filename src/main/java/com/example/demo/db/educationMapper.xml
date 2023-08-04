@@ -5,11 +5,11 @@
 <mapper namespace="education">
 
   <select id="findAllEducation" resultType="educationVO">
-    select eduno, eduName, eduContent, eduStatus, eduApp, eduAddr, educator, eduPhone, eduFile, edusysdate from (select rownum n, eduno, eduName, eduContent, eduStatus, eduApp, eduAddr, educator, eduPhone, eduFile, edusysdate from (select * from education order by eduNo desc))a where a.n between #{start} and #{end}
+    select eduNO, eduName, eduContent, eduStatus, eduApp, eduAddr, educator, eduPhone, eduFile, edusysdate from (select rownum n, eduno, eduName, eduContent, eduStatus, eduApp, eduAddr, educator, eduPhone, eduFile, edusysdate from (select * from education order by eduNo desc))a where a.n between #{start} and #{end}
   </select>
  
  	<select id="findByNoEducation" resultType="educationVO">
- 		select * from education where eduno = #{eduno}
+ 		select * from education where eduno = #{eduNO}
  	</select>
  	
  	<select id="getTotalRecordEducation" resultType="java.lang.Integer">

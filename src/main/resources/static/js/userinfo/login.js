@@ -1,6 +1,39 @@
 /**
  * 
  */
+$(document).ready(function() {
+	var error = /*[[${ error }]]*/'T';
+	console.log("error : ", error);
+
+})
+
+function submitForm() {
+	var header = $("meta[name='_csrf_header']").attr('content');
+	var token = $("meta[name='_csrf']").attr('content');
+	var username = document.getElementById('username').value;
+	var password = document.getElementById('password').value;
+
+	if (username == "" || username == null) {
+		swal('로그인 실패', '아이디를 입력해주세요.', 'warning');
+	} else if (password == "" || password == null) {
+		swal('로그인 실패', '비밀번호를 입력해주세요.', 'warning');
+	} else {
+		$.ajax({
+			url: '/userinfo/login',
+			data: { username: username, password: password },
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader(header, token);
+			},
+			method: "GET",
+			success: function(result) {
+
+			}
+		})
+	}
+
+}
+
+
 function closeModal() {
 	document.getElementById('findIdForm').reset();
 }
